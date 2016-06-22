@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
-<?php 
+<?php
+	$thisPage = "Social Media"; 
 	include("navigation.php");
-	$thisPage = "Social Media";
+	
 ?>
 <html>
 	<head>
@@ -22,7 +23,7 @@
 		<a href="http://facebook.com/joshsalyer23"><img alt="Facebook Logo" src="img/FB-f-Logo__blue_50.png"></a>
 
 		<a href="http://github.com/jsalyer23"><img alt="GitHub Logo" src="img/GitHub-Mark-64px.png"></a>
-		
+
 	<footer>
       	<p>&copy; 2016 Josh Salyer.</p>
     </footer>

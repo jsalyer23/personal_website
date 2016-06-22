@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <?php 
-	include("navigation.php");
 	$thisPage = "Goals";
+	include("navigation.php");
 ?>
 <html>
 	<head>

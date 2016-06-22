@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <?php 
-	include("navigation.php");
-	$thisPage = "SQRL"; 
+	$thisPage = "SQRL";
+	include("navigation.php"); 
 ?>
 
 <html>

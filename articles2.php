@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <?php 
-	include("navigation.php");
 	$thisPage = "The World Wide Web";
+	include("navigation.php");
 ?>
 <html>
 	<head>

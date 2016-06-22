@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <?php 
-	include("navigation.php");
 	$thisPage = "My Family";
+	include("navigation.php");
 ?>
 <html>
 	<head>

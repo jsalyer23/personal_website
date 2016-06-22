@@ -12,7 +12,7 @@
 		<li <?php if ($thisPage == "The World Wide Web") {echo " id=\"current_page\"";} ?>>
 			<a href="articles2.php">The World Wide Web</a>
 
-		<li <?php if ($thisPage == "Socical Media") echo " id=\"current_page\""; ?>>
+		<li <?php if ($thisPage == "Social Media") {echo " id=\"current_page\"";} ?>>
 			<a href="social_media.php">Social Media</a>
 
 		<li <?php if ($thisPage == "My Family") {echo " id=\"current_page\"";} ?>>	
