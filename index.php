@@ -1,5 +1,8 @@
 <!DOCTYPE HTML>
-
+<?php 
+	include("navigation.php");
+	$thisPage = "Home";
+?>
 <html>
 	<head>
 		<meta charset = utf-8/>
@@ -8,17 +11,10 @@
 	</head>
 
 	<body>
-		<header>
-			<div id="navigation">
-				<a id="current_page" href="index.html">Home</a>
-				<a href="goals.html">Goals</a>
-				<a href="articles1.html">SQRL</a>
-				<a href="articles2.html">The World Wide Web</a>
-				<a href="social_media.html">Social Media</a>
-				<a href="my_family.html">My Family</a>
-			</div>
-		</header>
+	
 		<h1>Joshua Salyer</h1>
+
+		<img src=""
 
 		<h2>Welcome!</h2>
 		<!-- <p>Hello! My name is Joshua Salyer and I am a junior developer. I am currently attending the <a href="http://www.omahacodeschool.com">Omaha Code School</a>just getting started in web development. I love learning how things work and using that knowledge to make incredible things. My favorite language to code in is probably Ruby but I also haven't experimented with very many languages either at this point. I've started to learn some JavaScript, Python, PHP, HTML, and CSS though. I hope that I can find time to learn Swift because creating iOS applications(especially mobile apps) sounds like a lot of fun to me. If you'd like to see more of my personal and professional goals, please visit my <a href="goals.html">goals</a> page.</p>

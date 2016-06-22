@@ -1,5 +1,8 @@
 <!DOCTYPE HTML>
-
+<?php 
+	include("navigation.php");
+	$thisPage = "The World Wide Web";
+?>
 <html>
 	<head>
 		<meta charset = utf-8/>
@@ -8,19 +11,9 @@
 	</head>
 
 	<body>
-		<header>
-			<h1>Joshua Salyer</h1>
-				<div id="navigation">
-				<a href="index.html">Home</a>
-				<a href="goals.html">Goals</a>
-				<a href="article1.html">SQRL</a>
-				<a id="current_page" href="articles2.html">The World Wide Web</a>
-				<a href="social_media.html">Social Media</a>
-				<a href="my_family.html">My Family</a>
-			</div>
-		</header>
 
 		<h2>The World Wide Web</h2>
+		
 		<p>The World Wide Web allows millions of people around the world to connect. Some people use it to be creative while others use it to connect with others socially. You can even use the web to get a degree with online classes. With this vast collection of knowledge, potentially everyone in the world can benifit from the internet.</p>
 
 		<p>The web is made up of numerous computers working together to make the connections needed to pass packets of information to each other until the information reaches it's final destination. In order for the web to work there must be computers that are always availible to help pass data along so that users can recieve the information they requested. These computers are called servers. Servers work with the rest of the computers connected to the internet to determine which data packets need to be sent and where. Without all the connections made by these computers, the web would not be nearly as accessible or even availible.</p>

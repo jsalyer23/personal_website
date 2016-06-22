@@ -5,10 +5,10 @@ h1 {
 
 #navigation {
 	color: #000000;
-	position: fixed;
+	position: inline;
     margin: auto;
     min-width: 800px;
-    text-align: center;
+    text-align: left;
     height: 20px;
     padding: 10px 20px;
     text-decoration: none;
@@ -40,6 +40,7 @@ html {
 	background-color: #f5f5f5;
 }
 
-#current_page {
+#navigation #current_page {
+	color: green;
 	font-size: 20px;
 }

@@ -1,5 +1,8 @@
 <!DOCTYPE HTML>
-
+<?php 
+	include("navigation.php");
+	$thisPage = "Goals";
+?>
 <html>
 	<head>
 		<meta charset = utf-8/>
@@ -8,17 +11,8 @@
 	</head>
 
 	<body>
-		<header>
-			<div id="navigation">
-				<a href="index.html">Home</a>
-				<a id="current_page" href="goals.html">Goals</a>
-				<a href="articles1.html">SQRL</a>
-				<a href="articles2.html">The World Wide Web</a>
-				<a href="social_media.html">Social Media</a>
-				<a href="my_family.html">My Family</a>
-			</div>
-		</header>
 		<h1>Joshua Salyer</h1>
+		
 		<h3>Professional Goals</h3>
 			<ul>
 				<li><em>Effectively</em> use a wide variety of programming languages</li>

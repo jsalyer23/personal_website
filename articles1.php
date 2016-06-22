@@ -1,4 +1,8 @@
 <!DOCTYPE HTML>
+<?php 
+	include("navigation.php");
+	$thisPage = "SQRL"; 
+?>
 
 <html>
 	<head>
@@ -8,19 +12,9 @@
 	</head>
 
 	<body>
-		<header>
-			<h1>Joshua Salyer</h1>
-				<div id="navigation">
-				<a href="index.html">Home</a>
-				<a href="goals.html">Goals</a>
-				<a id="current_page" href="articles1.html">SQRL</a>
-				<a href="articles2.html">The World Wide Web</a>
-				<a href="social_media.html">Social Media</a>
-				<a href="my_family.html">My Family</a>
-			</div>
-		</header>
 
 		<h2>SQRL</h2>
+		
 		<p>	Secure Quick Reliable Login (SQRL) allows users to login to websites without using their personal information or typing in a username and password. By simply using your smartphone to scan a QR code on a website, you can authorize your account to be logged into on sites that enable SQRL. SQRL provides a quick and secure way to get access to your accounts while eliminating the need for you to give up personal information. I will cover some of the security benefits to using SQRL and how to use it to login.</p>
 
 		<p>	When using SQRL to login to a website that provides a QR code you have three options to authenticate your identity. You can use your smart phone QR code app to scan the code from the website, tap the code directly on your smart phone, or click on the QR code on your computer(SQRL application is required). You only need to authorize the QR code login once per site but you will be asked to  confirm the domain name connected with the code each time you use it to log into that website.</p>
