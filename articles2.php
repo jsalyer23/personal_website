@@ -1,11 +1,16 @@
 <!DOCTYPE HTML>
 <?php 
 	$thisPage = "The World Wide Web";
+	$theme = "default";
 ?>
 <html>
 	<head>
 		<meta charset = utf-8/>
-		<link type="text/css" rel="stylesheet" href="stylesheet.css"/> 
+		<?php if ($theme == "default"){ ?>
+    		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<?php } else { ?>
+    		<link rel="stylesheet" type="text/css" href="stylesheet2.css">
+		<?php } ?>
 		<title>Josh Salyer's Website</title>
 	</head>
 

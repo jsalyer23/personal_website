@@ -6,7 +6,13 @@
 <html>
 	<head>
 		<meta charset = utf-8/>
-		<link type="text/css" rel="stylesheet" href="stylesheet.css"/> 
+
+		<link rel="stylesheet" type="text/css" href="stylesheet2.css">
+		
+    		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<!-- <?php if ($theme == "default"){ ?><?php } else { ?>
+    		
+		<?php } ?> -->
 		<title>Josh Salyer's Website</title>
 	</head>
 
