@@ -1,16 +1,20 @@
+<nav id="navigation">
+	<?php if ($thisPage == "Home") { ?>
+		<a id="current_page" href="index.php">Home</a>
+		<?php } ?>
 
-<?php
-	$my_family = include "my_family.html";
-	$social_media = include "social_media.html";
-	$articles2 = include "articles2.html";
-	$articles1 = include "articles1.html";
-	$index = include "index.html";
-	$goals = include "goals.html";
-	$pages = array($my_family, $social_media, $articles1, $articles2, $index, $goals);
+	<?php if ($thisPage == "Goals") {echo " id=\"current_page\"";} ?>
+		<a href="goals.php">Goals</a>
 
+	<?php if ($thisPage == "SQRL") {echo " id=\"current_page\"";} ?>
+		<a href="articles1.php">SQRL</a>
 
-	foreach ($pages as $web_page) {
-		if ($web_page == $current_page)
-	}
+	<?php if ($thisPage == "The World Wide Web") {echo " id=\"current_page\"";} ?>
+		<a href="articles2.php">The World Wide Web</a>
 
-?>
+	<?php if ($thisPage == "Social Media") {echo " id=\"current_page\"";} ?>
+		<a href="social_media.php">Social Media</a>
+
+	<?php if ($thisPage == "My Family") {echo " id=\"current_page\"";} ?>	
+		<a href="my_family.php">My Family</a>
+</nav>

@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <?php
 	$thisPage = "Social Media"; 
-	include("navigation.php");
-	
 ?>
 <html>
 	<head>
@@ -12,21 +10,30 @@
 	</head>
 
 	<body>
-		<h1>Joshua Salyer</h1>
+		<div class="flex-container">
 
-		<p>Feel free to contact me!</p>
+			<div class="sidebar">
+				<?php include("navigation.php"); ?>
+			</div>
 
-		<p><a href="mailto:joshsalyer23@gmail.com">joshsalyer23@gmail.com</a></p>
+			<div class="main">
 
-		<a href="http://twitter.com/joshsalyer23"><img alt="Twitter Logo" src=""></a>
+				<h1>Joshua Salyer</h1>
 
-		<a href="http://facebook.com/joshsalyer23"><img alt="Facebook Logo" src="img/FB-f-Logo__blue_50.png"></a>
+				<p>Feel free to contact me!</p>
 
-		<a href="http://github.com/jsalyer23"><img alt="GitHub Logo" src="img/GitHub-Mark-64px.png"></a>
+				<p><a href="mailto:joshsalyer23@gmail.com">joshsalyer23@gmail.com</a></p>
 
+				<a href="http://twitter.com/joshsalyer23"><img alt="Twitter Logo" src=""></a>
+
+				<a href="http://facebook.com/joshsalyer23"><img alt="Facebook Logo" src="img/FB-f-Logo__blue_50.png"></a>
+
+				<a href="http://github.com/jsalyer23"><img alt="GitHub Logo" src="img/GitHub-Mark-64px.png"></a>
+			</div>
+		</div>
+	</body>
+	
 	<footer>
       	<p>&copy; 2016 Josh Salyer.</p>
     </footer>
-
-	</body>
 </html>
