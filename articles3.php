@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-<?php 
+<?php
 	$thisPage = "File Paths";
-	$theme = "default";
+	include("top.php");
 ?>
-<html>
-	<head>
-		<meta charset = UTF-8 />
-		<?php if ($theme == "default"){ ?>
-    		<link rel="stylesheet" type="text/css" href="stylesheet.css">
-		<?php } else { ?>
-    		<link rel="stylesheet" type="text/css" href="stylesheet2.css">
-		<?php } ?>
-		<title>Josh Salyer's Website</title>
-	</head>
-
-	<body>
-		<div class="flex-container">
-
-			<div class="sidebar">
-				<?php include("navigation.php"); ?>
-			</div>
-
-			<div class="main">
 
 				<h2>File Paths</h2>
 				
@@ -36,9 +16,5 @@
 				<p>When using relative paths to link pages in your website locally they don't need to match your remote server but when you use absolute paths they do need to match. If they don't then your website won't load correctly. It is important to test your site on a local server if you can before trying to deploy your site on a remote server.</p>
 			</div>
 		</div>
-	<footer>
-      	<p>&copy; 2016 Josh Salyer.</p>
-    </footer>
-	</body>
-
-</html>
+		
+<?php include("bottom.php"); ?>

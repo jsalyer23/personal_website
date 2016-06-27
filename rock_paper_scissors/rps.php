@@ -1,13 +1,12 @@
 <?php	
-	$player_name = $_GET["name"];
 
 	$choices = array(
 
-		"rock" => '<a href="?weapon=rock&name=$player_name"><img src="rock_paper_scissors/rock.jpg" alt="Rock"></a>',
+		"rock" => '<a href="?weapon=rock&name=$player_name"><img src="rock.jpg" alt="Rock" width= "200px" height= "200px"></a>',
 
-		"paper" => '<a href="?weapon=paper"><img src="Code/personal_website/rock_paper_scissors/rps_images/paper.jpg" alt="Paper"></a>',
+		"paper" => '<a href="?weapon=paper"><img src="paper2.jpg" alt="Paper" width= "200px" height= "200px"></a>',
 
-		"scissors" => '<a href="?weapon=scissors"><img src="rock_paper_scissors/rps_images/scissors.png" alt="Scissors"></a>'
+		"scissors" => '<a href="?weapon=scissors"><img src="shredding_scissors.jpg" alt="Scissors" width= "200px" height= "200px"></a>'
 	);
 
 	foreach($choices as $weapon => $picture) {
@@ -39,7 +38,11 @@
 
 			echo "<h1>You lose...</h1>";
 		}
-		echo "<h2>Your Choice: </h2>" . " " . strtoupper($player_choice);
-		echo "<h2>Computer Choice: </h2>" . " " . strtoupper($computer_choice);
+
+		if ($player_choice != "") {
+			echo "<h2>Your Choice: </h2>" . " " . strtoupper($player_choice);
+			echo "<h2>Computer Choice: </h2>" . " " . strtoupper($computer_choice);
+		}
+		
 	}
 ?>

@@ -1,29 +1,7 @@
-<!DOCTYPE HTML>
 <?php
 	$thisPage = "Social Media"; 
-	$theme = "alternate";
+	include("top.php"); 
 ?>
-<html>
-	<head>
-		<meta charset = UTF-8 />
-
-		<?php if ($theme == "default"){ ?>
-    		<link rel="stylesheet" type="text/css" href="stylesheet.css">
-		<?php } else { ?>
-    		<link rel="stylesheet" type="text/css" href="stylesheet2.css">
-		<?php } ?>
-
-		<title>Josh Salyer's Website</title>
-	</head>
-
-	<body>
-		<div class="flex-container">
-
-			<div class="sidebar">
-				<?php include("navigation.php"); ?>
-			</div>
-
-			<div class="main">
 
 				<h1>Joshua Salyer</h1>
 
@@ -38,10 +16,5 @@
 				<a class="social_icon" href="http://github.com/jsalyer23"><img alt="GitHub Logo" src="img/GitHub-Mark-64px.png"></a>
 			</div>
 		</div>
-	<footer>
-      	<p>&copy; 2016 Josh Salyer.</p>
-    </footer>
-	</body>
-	
-
-</html>
+		
+<?php include("bottom.php"); ?>

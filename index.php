@@ -1,29 +1,8 @@
-<!DOCTYPE HTML>
-<?php 
-	$thisPage = "Home";
-	$theme = "default";
+<?php
+	$thisPage = "Home"; 
+	include("top.php"); 
 ?>
-<html>
-	<head>
-		<meta charset = UTF-8 />
 
-		<?php if ($theme == "default"){ ?>
-    		<link rel="stylesheet" type="text/css" href="stylesheet.css">
-		<?php } else { ?>
-    		<link rel="stylesheet" type="text/css" href="stylesheet2.css">
-		<?php } ?>
-
-		<title>Josh Salyer's Website</title>
-	</head>
-
-	<body>
-		<div class="flex-container">
-	
-			<div class="sidebar">
-				<?php 	include("navigation.php"); ?>
-			</div>
-
-			<div class="main">
 				<h2>Welcome!</h2>
 			
 				
@@ -38,10 +17,4 @@
 			
 				<p>I am married with two children who are 4 and 1. I enjoy watching all kinds of movies and listen to a wide variety of music. MAHA is one of my favorite music festivals i've been to since moving to Omaha. When the weather lets me, I like to garden and go backpacking. On the weekends you can find me searching for ingredients at the farmers market or at the park with my kids. Feel free to get in touch with me.</p>
 			</div>
-		
-		</div>
-	<footer>
-      	<p>&copy; 2016 Josh Salyer.</p>
-    </footer>
-    </body>
-</html>
+<?php include("bottom.php"); ?>
