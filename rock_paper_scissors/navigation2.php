@@ -26,6 +26,9 @@
 					<li <?php if ($thisPage == "Rock Paper Scissors") {echo " id=\"current_page\"";} ?>>	
 						<a href="rock_paper_scissors/welcome_page2.php">Rock Paper Scissors</a>
 
+					<li <?php if ($thisPage == "Tic Tac Toe") {echo " id=\"current_page\"";} ?>>	
+						<a href="../index.php">Tic Tac Toe</a>
+
 				</li>
 			</ul>
 

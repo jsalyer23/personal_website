@@ -1,0 +1,57 @@
+html {
+	background-color: #1a242d;
+}
+
+li a {
+	display: -webkit-flex;
+	text-decoration: none;
+	color: white;
+	justify-content: center;
+}
+
+ul a:hover {
+	background-color: #3f7098;
+	color: black;
+}
+
+#current_page a {
+	background-color: #f90409;
+	color: black;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.flex-container{
+	display: flex;
+}
+
+.nav-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.sidebar {
+	flex: 0 0 300px;
+	background-color: #415762;
+	list-style-type: none;
+}
+
+.nav-wrapper ul {
+	list-style-type: none;
+}
+
+.main {
+	flex: 1 1;
+	padding: 20px;
+	background-color: #48b5e0;
+}
+
+.social_icon {
+	width: 15px;
+	height: 15px;
+	padding: 0.5%;
+}
