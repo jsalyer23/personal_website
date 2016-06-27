@@ -5,7 +5,7 @@
 
 <html>
 	<head>
-		<meta charset = utf-8/>
+		<meta charset = UTF-8 />
 
 		<link rel="stylesheet" type="text/css" href="stylesheet2.css">
 		
@@ -37,8 +37,9 @@
 				<p>	Until SQRL apps become integrated into operating systems for smart phones you will need to choose which SQRL client to install onto your device if you want to take advantage of these features. The SQRL system algorithms, libraries, and packages all exist in the public domain and are ready to be assembled for use. SQRL may be the standard way to login in the future especially as identity theft grows.</p>
 			</div>
 		</div>
-	</body>
 	<footer>
       	<p>&copy; 2016 Josh Salyer.</p>
     </footer>
+	</body>
+
 </html>

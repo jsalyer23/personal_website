@@ -1,18 +1,16 @@
-<!DOCTYPE HTML>
-<?php
-	$thisPage = "Social Media"; 
+<!DOCTYPE html>
+<?php 
+	$thisPage = "What Makes Up An HTML Document?";
 	$theme = "alternate";
 ?>
 <html>
 	<head>
 		<meta charset = UTF-8 />
-
 		<?php if ($theme == "default"){ ?>
     		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 		<?php } else { ?>
     		<link rel="stylesheet" type="text/css" href="stylesheet2.css">
 		<?php } ?>
-
 		<title>Josh Salyer's Website</title>
 	</head>
 
@@ -25,23 +23,20 @@
 
 			<div class="main">
 
-				<h1>Joshua Salyer</h1>
+				<h2></h2>
+				
+				<p></p>
 
-				<p>Feel free to contact me!</p>
+				<p></p>
 
-				<p><a href="mailto:joshsalyer23@gmail.com">joshsalyer23@gmail.com</a></p>
+				<p></p>
 
-				<a class="social_icon" href="http://twitter.com/joshsalyer23"><img alt="Twitter Logo" src=""></a>
-
-				<a class="social_icon" href="http://facebook.com/joshsalyer23"><img alt="Facebook Logo" src="img/FB-f-Logo__blue_50.png"></a>
-
-				<a class="social_icon" href="http://github.com/jsalyer23"><img alt="GitHub Logo" src="img/GitHub-Mark-64px.png"></a>
+				<p></p>
 			</div>
 		</div>
 	<footer>
       	<p>&copy; 2016 Josh Salyer.</p>
     </footer>
 	</body>
-	
 
 </html>

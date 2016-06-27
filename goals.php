@@ -5,7 +5,7 @@
 ?>
 <html>
 	<head>
-		<meta charset = utf-8/>
+		<meta charset = UTF-8 />
 
 		<?php if ($theme == "default"){ ?>
     		<link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -41,8 +41,9 @@
 					</ul>
 			</div>
 		</div>
-	</body>
 	<footer>
       	<p>&copy; 2016 Josh Salyer.</p>
     </footer>
+	</body>
+
 </html>

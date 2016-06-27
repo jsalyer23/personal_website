@@ -9,7 +9,7 @@ li a {
 	justify-content: center;
 }
 
-div a:hover {
+ul a:hover {
 	background-color: #3f7098;
 	color: black;
 }
@@ -38,9 +38,11 @@ body {
 	flex: 0 0 300px;
 	background-color: #415762;
 	list-style-type: none;
-
 }
 
+.nav-wrapper ul {
+	list-style-type: none;
+}
 
 .main {
 	flex: 1 1;
@@ -48,3 +50,8 @@ body {
 	background-color: #48b5e0;
 }
 
+.social_icon {
+	width: 15px;
+	height: 15px;
+	padding: 0.5%;
+}

@@ -9,7 +9,7 @@ li a {
 	justify-content: center;
 }
 
-div a:hover {
+ul a:hover {
 	background-color: #3f7098;
 	color: black;
 }
@@ -41,6 +41,9 @@ body {
 
 }
 
+.nav-wrapper ul {
+	list-style-type: none;
+}
 
 .main {
 	flex: 1 1;

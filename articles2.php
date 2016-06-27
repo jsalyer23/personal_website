@@ -5,7 +5,7 @@
 ?>
 <html>
 	<head>
-		<meta charset = utf-8/>
+		<meta charset = UTF-8 />
 		<?php if ($theme == "default"){ ?>
     		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 		<?php } else { ?>
@@ -34,8 +34,8 @@
 				<p>The internet has become a big part of our lives. Since so many people use it everyday I wonder what the future will look like as it becomes more and more relient on the internet. Will everyone have access to the internet one day? Will there ever be a way to eliminate cyber crime and other malicious use of the internet? As a developer I look forward to shaping the future of the web and how it's used to benifit the world we live in. I hope that I can help the web become even more useful and work with others to make it more approachable for future generations.</p>
 			</div>
 		</div>
-	</body>
 	<footer>
       	<p>&copy; 2016 Josh Salyer.</p>
     </footer>
+	</body>
 </html>
