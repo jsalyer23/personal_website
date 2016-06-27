@@ -7,11 +7,14 @@
  				<?php
  					
  					include ("rps.php");
- 					rock_paper_scissors();
+
+ 					$rand = random_computer_choice();
+ 					 
+ 					echo rock_paper_scissors($_GET["weapon"], $rand);
+	 				display_choices($_GET["weapon"], $rand);
+ 					
  				?>
  			</div>
  
- 	</body>
- </html> 
 
  <?php include("../bottom.php"); ?>
