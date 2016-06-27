@@ -22,6 +22,10 @@
 
 					<li <?php if ($thisPage == "My Family") {echo " id=\"current_page\"";} ?>>	
 						<a href="my_family.php">My Family</a>
+
+					<li <?php if ($thisPage == "Rock Paper Scissors") {echo " id=\"current_page\"";} ?>>	
+						<a href="rock_paper_scissors/index.php">Rock Paper Scissors</a>
+
 				</li>
 			</ul>
 
