@@ -4,11 +4,17 @@
 ?>
 
 	<h1>Tic Tac Toe</h1>
-
-		<form>
+		<!-- Collect palyer's moves then return to the same page once the move is submitted -->
+		<form method= "post" action= "index.php">
 			<?php 
-				include("functions.php"); 
-				create_buttons();
+				
+				include("functions.php");
+			
+				//Show the dropdown boxes on the page 
+				create_drop_down();
+				//Create Submit button
+				echo "<input type= \"submit\" name= \"submit\" value= \"Submit\" />"
+
 			?>
 		</form>
 
