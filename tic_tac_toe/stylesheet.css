@@ -71,10 +71,23 @@ body {
 	flex-direction: row;
 }
 
-.gameContainer__box a{
-	justify-content: center;
-	border-radius: 30px;
-	border-color: white;
+.gameContainer__box {
+	display: flex;
+	align-content: center;
+	background-color: green;
+	
 	width: 100px;
 	height: 100px;
 }
+
+.gameContainer__link {
+	
+	color: orange;
+	font-size: 100px
+}
+
+
+/*.tableCell {
+	display: flex;
+	flex-direction: column;
+}*/

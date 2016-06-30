@@ -46,6 +46,10 @@
 
 					<li <?php if ($thisPage == "What Makes Up An HTML Document?") {echo " id=\"current_page\"";} ?>>	
 						<a href="articles4.php">What Makes Up An HTML Document?</a>
+
+					<li <?php if ($thisPage == "Tic Tac Toe Journal") {echo " id=\"current_page\"";} ?>>	
+						<a href="articles4.php">Tic Tac Toe Journal</a>
+
 				</li>
 			</ul>
 			

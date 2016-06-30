@@ -7,46 +7,46 @@
 ?>
 
 	<div class="gameContainer">
-		
+		<h1>It's Player 1's turn</h1>
 		<div class="gameContainer__row">
 			<div class="gameContainer__box" name="0">
-				 <?php fill_boxes($scoreboard, 0, $turn); ?>
+				<a <?php echo $blank; ?></a>
 			</div>
 
 			<div class="gameContainer__box" name="1">
-				 <?php fill_boxes($scoreboard, 1, $turn); ?>
+				<a <?php echo $blank; ?></a>
 			</div>
 
 			<div class="gameContainer__box" name="2">
-				 <?php fill_boxes($scoreboard, 2, $turn); ?>
+				<a <?php echo $blank; ?></a>
 			</div>
 		</div>
 		<br>
 		<div class="gameContainer__row">
 			<div class="gameContainer__box" name="3">
-				 <?php fill_boxes($scoreboard, 3, $turn); ?>
+				<a <?php echo $blank; ?></a>
 			</div>
 
 			<div class="gameContainer__box" name="4">
-				 <?php fill_boxes($scoreboard, 4, $turn); ?>
+				<a <?php echo $blank; ?></a>
 			</div>
 
 			<div class="gameContainer__box" name="5">
-				 <?php fill_boxes($scoreboard, 5, $turn); ?>
+				<a <?php echo $blank; ?></a>
 			</div>
 		</div>
 		<br>
 		<div class="gameContainer__row">
 			<div class="gameContainer__box" name="6">
-				 <?php fill_boxes($scoreboard, 6, $turn); ?>
+				<a <?php echo $blank; ?></a>
 			</div>
 
 			<div class="gameContainer__box" name="7">
-				 <?php fill_boxes($scoreboard, 7, $turn); ?>
+				<a <?php echo $blank; ?></a>
 			</div>
 
 			<div class="gameContainer__box" name="8">
-				 <?php fill_boxes($scoreboard, 8, $turn); ?>
+				<a <?php echo $blank; ?></a>
 			</div>
 		</div>
 		<br>
