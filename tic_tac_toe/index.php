@@ -13,43 +13,43 @@
 		
 		<div class="gameContainer__row">
 			<div class="gameContainer__box" name="0">
-				 <?php fill_boxes($scoreboard, 0, $turn, $score_keeper); ?>
+				 <?php fill_boxes($scoreboard, 0, $turn); ?>
 			</div>
 
 			<div class="gameContainer__box" name="1">
-				 <?php fill_boxes($scoreboard, 1, $turn, $score_keeper); ?>
+				 <?php fill_boxes($scoreboard, 1, $turn); ?>
 			</div>
 
 			<div class="gameContainer__box" name="2">
-				 <?php fill_boxes($scoreboard, 2, $turn, $score_keeper); ?>
+				 <?php fill_boxes($scoreboard, 2, $turn); ?>
 			</div>
 		</div>
 		<br>
 		<div class="gameContainer__row">
 			<div class="gameContainer__box" name="3">
-				 <?php fill_boxes($scoreboard, 3, $turn, $score_keeper); ?>
+				 <?php fill_boxes($scoreboard, 3, $turn); ?>
 			</div>
 
 			<div class="gameContainer__box" name="4">
-				 <?php fill_boxes($scoreboard, 4, $turn, $score_keeper); ?>
+				 <?php fill_boxes($scoreboard, 4, $turn); ?>
 			</div>
 
 			<div class="gameContainer__box" name="5">
-				 <?php fill_boxes($scoreboard, 5, $turn, $score_keeper); ?>
+				 <?php fill_boxes($scoreboard, 5, $turn); ?>
 			</div>
 		</div>
 		<br>
 		<div class="gameContainer__row">
 			<div class="gameContainer__box" name="6">
-				 <?php fill_boxes($scoreboard, 6, $turn, $score_keeper); ?>
+				 <?php fill_boxes($scoreboard, 6, $turn); ?>
 			</div>
 
 			<div class="gameContainer__box" name="7">
-				 <?php fill_boxes($scoreboard, 7, $turn, $score_keeper); ?>
+				 <?php fill_boxes($scoreboard, 7, $turn); ?>
 			</div>
 
 			<div class="gameContainer__box" name="8">
-				 <?php fill_boxes($scoreboard, 8, $turn, $score_keeper); ?>
+				 <?php fill_boxes($scoreboard, 8, $turn); ?>
 			</div>
 		</div>
 		<br>

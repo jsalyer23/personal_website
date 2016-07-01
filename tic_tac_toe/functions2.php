@@ -6,6 +6,8 @@
 	$tie_count = 0;
 	//This function checks to see if anyone has won the game
 	function did_they_win($scoreboard) {
+		//Variable to keep track of how many spots are left
+			$availible_boxes = 9;
 		//Create an empty array with 8 spots to add winning combination strings from the $scoreboard
 		$winning_combinations = array('', '', '', '', '', '', '', '');
 			//Assign one winning combination to each of the spots in the array
@@ -23,6 +25,7 @@
 				if ($value == "111") {
 					//Add one to player 1's wins
 					$player1_wins += 1;
+					$availible_boxes -= 1;
 					//Display the winner
 					return "Player 1 Wins!!!";
 					
@@ -31,11 +34,20 @@
 				elseif ($value == "222") {
 					//Add one to player 2's wins
 					$player2_wins += 1;
+					$availible_boxes -= 1;
 					//Display the winner
 					return "Player 2 Wins!!!";
 					
 				}
 			
+			}
+			
+			//If the number of availible boxes is 0 then it's a tie
+			if ($availible_boxes == 0) {
+				//Display the results
+				echo "It's a draw!!!";
+				//Add one to the number of tied games
+				$tie_count += 1;
 			}
 	}
 
@@ -44,12 +56,12 @@
 		//If the reset button is clicked then reload the game
 		if (isset($_POST['reset'])) {
 			//Show a link to the TTT home page
-			echo '<a href=index.php?scoreboard=333333333>New Game?</a>';
+			echo '<a href="index.php?scoreboard=333333333">New Game?</a>';
 		}
 	}
 	//Add a "X" or an "O" or a "@" in each box based on the query string parameter ($scoreboard)
 	//Box number is the number of each box which is used as the position in the query string
-	function fill_boxes($scoreboard, $box_number, $turn, $score_keeper) {
+	function fill_boxes($scoreboard, $box_number, $turn) {
 
 		//If the position in the query string is equal to "1" then that will display a "X" in the box
 		if ($scoreboard[$box_number] == "1") {
@@ -70,18 +82,11 @@
 
 	//Determine who's turn it is according to the query string ($soreboard)
 	function whos_turn($scoreboard) {
-		//Variable to keep track of how many spots are left
-		$availible_boxes = 9;
+		
 		//Set both player's turn counts to 0
 		$player1_turn = 0;
 		$player2_turn = 0;
-		//If the number of availible boxes is 0 then it's a tie
-		if ($availible_boxes == 0) {
-			//Display the results
-			echo "It's a draw!!!";
-			//Add one to the number of tied games
-			$tie_count += 1;
-		}
+
 		//Cycle through each number (character) in the query string ($scoreboard)
 		for ($number = 0; $number < strlen($scoreboard); $number++) {
 			//If one of the numbers in the query string is a "1"
@@ -99,12 +104,12 @@
 		if ($player1_turn > $player2_turn) {
 			//then it's player 2's turn
 			return 2;
-			$availible_boxes -= 1;
+			
 		}
 		else {
 			//if not then it's player 1's turn
 			return 1;
-			$availible_boxes -= 1;
+			
 		}
 
 	}

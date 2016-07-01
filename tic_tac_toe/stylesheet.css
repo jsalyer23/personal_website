@@ -73,16 +73,17 @@ body {
 
 .gameContainer__box {
 	display: flex;
-	align-content: center;
-	background-color: green;
-	
+	text-align: center;
+	background-color: white;
 	width: 100px;
 	height: 100px;
+	border: 2px solid black;
+	font-size: 100px;
 }
 
-.gameContainer__link {
+.gameContainer__link{
 	
-	color: orange;
+	color: white;
 	font-size: 100px
 }
 
