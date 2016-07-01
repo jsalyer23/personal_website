@@ -1,5 +1,5 @@
 <?php
-	
+	session_start();
 	//Create variable to keep track of the wins
 	$player1_wins = 0;
 	$player2_wins = 0;
@@ -7,14 +7,9 @@
 	//Create variable to keep track of the loses
 	$tie_count = 0;
 	//This function saves the previous games results somehow...
-	// function keep_score_keeper($scoreboard, $score_keeper) {
-	// 	for () {
-
-	// 	}
-	// }
+	// function keep_multiple_results()
 	//This function checks to see if anyone has won the game
 	function did_they_win($scoreboard) {
-		
 
 		//Create an empty array with 8 spots to add winning combination strings from the $scoreboard
 		$winning_combinations = array('', '', '', '', '', '', '', '');
@@ -36,30 +31,47 @@
 				}
 				//If one of the combinations has three ones in it then O's have won
 				else if ($value == "222") {
-					//Display the winner
+					// Display the winner
 					return "Player 2 Wins!!!";
 				}
 			}
 	}
+// 9, 10, 11, 12
+// 	function win_tracker($scoreboard) {
+// 		if ($scoreboard[9] != 0)
+// 	}
+	//This function should add 1 to the winning player's wins count
+	//$score_keeper = the result of did_they_win() function
+	function add_to_win_player1($score_keeper) {
+		//If $score_keeper is equal to the string "Player 1 Wins!!!"
+		if ($score_keeper == "Player 1 Wins!!!") {
 
-	function score_tracker() {
-		if (did_they_win() == "Player 1 Wins!!!") {
-			return $player1_wins++;
+			//Add 1 to Player 1's wins
+			$player1_wins += 1;
+			//Display the number of wins for Player 1
+			return $player1_wins;
 		}
-		else if ((did_they_win() == "Player 2 Wins!!!") {
-			return $player1_wins++;
+	}
+
+	function add_to_win_player2($score_keeper){
+		//If $score_keeper is equal to the string "Player 2 Wins!!!"
+		if ($score_keeper == "Player 2 Wins!!!") {
+			//Add 1 to Player 2's wins
+			$player2_wins += 1;
+			//Display the number of wins for Player 2
+			return $player2_wins;
 		}
 	}
 
 
 	//This function resets the game
-	function enable_reset(){
-		//If the reset button is clicked then reload the game
-		if (isset($_POST['reset'])) {
-			//Show a link to the TTT home page
-			echo '<a href="index.php?scoreboard=333333333">New Game?</a>';
-		}
-	}
+	// function enable_reset(){
+	// 	//If the reset button is clicked then reload the game
+	// 	if (isset($_POST['reset'])) {
+	// 		//Show a link to the TTT home page
+	// 		echo '<a href="index.php?scoreboard=333333333">New Game?</a>';
+	// 	}
+	// }
 	//Add a "X" or an "O" or a "@" in each box based on the query string parameter ($scoreboard)
 	//Box number is the number of each box which is used as the position in the query string
 	function fill_boxes($scoreboard, $box_number, $turn) {

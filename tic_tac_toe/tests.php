@@ -73,16 +73,16 @@
 		echo "Failure";
 	}
 
-	// 	echo "---------------Testing Starts Here-----------------\n\n";
-	// echo "\n\n\n\n";
-	// echo "Testing if Player 1 DOES NOT WIN if they go after the game's OVER.";
-	// echo "---------------------------------------------------";
-	// 	if (did_they_win("") == "Player 1 Wins!!!"){
-	// 	echo "Success";
-	// }
-	// else {
-	// 	echo "Failure";
-	// }
+		echo "---------------Testing Starts Here-----------------\n\n";
+	echo "\n\n\n\n";
+	echo ".";
+	echo "---------------------------------------------------";
+		if (did_they_win("") == "Player 1 Wins!!!"){
+		echo "Success";
+	}
+	else {
+		echo "Failure";
+	}
 
 		echo "---------------Testing Starts Here-----------------\n\n";
 	echo "\n\n\n\n";
