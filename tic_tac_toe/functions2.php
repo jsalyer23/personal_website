@@ -3,8 +3,15 @@
 	//Create variable to keep track of the wins
 	$player1_wins = 0;
 	$player2_wins = 0;
+
 	//Create variable to keep track of the loses
 	$tie_count = 0;
+	//This function saves the previous games results somehow...
+	// function keep_score_keeper($scoreboard, $score_keeper) {
+	// 	for () {
+
+	// 	}
+	// }
 	//This function checks to see if anyone has won the game
 	function did_they_win($scoreboard) {
 		
@@ -24,27 +31,26 @@
 			foreach ($winning_combinations as $value) {
 				//If one of the combinations has three twos in it then X's have won
 				if ($value == "111") {
-					//Add one to player 1's wins
-					$player1_wins += 1;
-					$availible_boxes -= 1;
 					//Display the winner
 					return "Player 1 Wins!!!";
-					
 				}
 				//If one of the combinations has three ones in it then O's have won
 				else if ($value == "222") {
-					//Add one to player 2's wins
-					$player2_wins += 1;
-					$availible_boxes -= 1;
 					//Display the winner
 					return "Player 2 Wins!!!";
-					
 				}
-			
 			}
-			
-			
 	}
+
+	function score_tracker() {
+		if (did_they_win() == "Player 1 Wins!!!") {
+			return $player1_wins++;
+		}
+		else if ((did_they_win() == "Player 2 Wins!!!") {
+			return $player1_wins++;
+		}
+	}
+
 
 	//This function resets the game
 	function enable_reset(){
@@ -107,14 +113,14 @@
 		if ($player1_turn > $player2_turn) {
 			//then it's player 2's turn
 			return 2;
-			
 		}
 		else {
 			//if not then it's player 1's turn
-			return 1;
-			
+			return 1;	
 		}
-
 	}
+
+	//This function determines what the computer will chose
+	// function computer_choice()
 	
 ?>

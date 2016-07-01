@@ -40,13 +40,23 @@
 	else {
 		echo "Failure";
 	}
+	// 	echo "---------------Testing Starts Here-----------------\n\n";
+	// echo "\n\n\n\n";
+	// echo "Testing if Player 2 wins if they have 3 O's DIAGONALLY TOP LEFT TO BOTTOM RIGHT.";
+	// echo "---------------------------------------------------";
+	// 	if (did_they_win("211323332") == 1){
+	// 	echo "Success";
+	// }
+	// else {
+	// 	echo "Failure";
+	// }
 
 	echo "---------------Testing Starts Here-----------------\n\n";
 	echo "\n\n\n\n";
 	echo "Testing if Player 2 wins if they have 3 O's DIAGONALLY TOP LEFT TO BOTTOM RIGHT.";
 	echo "---------------------------------------------------";
 		if (did_they_win("211323332") == "Player 2 Wins!!!"){
-		echo "Success";
+		echo "Success It Player Win Count Is 1";
 	}
 	else {
 		echo "Failure";
@@ -78,7 +88,7 @@
 	echo "\n\n\n\n";
 	echo "Testing if THERE IS A TIE.";
 	echo "---------------------------------------------------";
-		if (did_they_win("112221121") == "It's a draw!!!"){
+		if (whos_turn("112221121") == "It's a draw!!!"){
 		echo "Success";
 	}
 	else {

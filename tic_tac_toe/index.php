@@ -5,6 +5,8 @@
 	$scoreboard = $_GET['scoreboard'];
 	$turn = whos_turn($scoreboard);
 	$score_keeper = did_they_win($scoreboard);
+	$p1 = $win_array[0];
+	$p2 = $win_array[1];
 	echo $score_keeper;
 	
 ?>
@@ -61,8 +63,8 @@
 		</div>
 		<div class="scoreBoard">
 			<!--Might make these individual divs?-->
-			<h2>Player 1 Wins: <?php echo $player1_wins; ?></h2>
-			<h2>Player 2 Wins: <?php echo $player2_wins; ?></h2>
+			<h2>Player 1 Wins: <?php echo $score_keeper; ?></h2>
+			<h2>Player 2 Wins: <?php echo $score_keeper; ?></h2>
 			<h2>Draws: <?php echo $tie_count; ?></h2>
 		</div>
 	</div>
