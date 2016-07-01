@@ -1,11 +1,11 @@
-select {
-	width: 60px;
-	height: 60px;
-	font-size: 50px;
-}
 
 html {
 	background-color: #1a242d;
+}
+
+body {
+	padding: 0;
+	margin: 0;
 }
 
 li a {
@@ -19,16 +19,13 @@ ul a:hover {
 	background-color: #3f7098;
 	color: black;
 }
-
+/**********************************Change the color of the currently selected page****************************/
 #current_page a {
 	background-color: #f90409;
 	color: black;
 }
 
-body {
-	padding: 0;
-	margin: 0;
-}
+
 
 .flex-container{
 	display: flex;
@@ -45,6 +42,7 @@ body {
 	flex: 0 0 300px;
 	background-color: #415762;
 	list-style-type: none;
+	height: 100%;
 }
 
 .nav-wrapper ul {
@@ -52,7 +50,7 @@ body {
 }
 
 .main {
-	flex: 1 1;
+	flex: 1 1 auto;
 	padding: 20px;
 	background-color: #48b5e0;
 }
@@ -63,8 +61,10 @@ body {
 	padding: 0.5%;
 }
 
+/*********************************CSS for Tic Tac Toe Game********************************************/
 .gameContainer {
 	display: flex;
+	justify-content: flex-end;
 }
 
 .gameContainer__row {
@@ -87,8 +87,8 @@ body {
 	font-size: 100px
 }
 
-
-/*.tableCell {
+.scoreBoard {
 	display: flex;
 	flex-direction: column;
-}*/
+
+}

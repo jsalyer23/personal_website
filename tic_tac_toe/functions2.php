@@ -1,4 +1,5 @@
 <?php
+	
 	//Create variable to keep track of the wins
 	$player1_wins = 0;
 	$player2_wins = 0;
@@ -6,8 +7,8 @@
 	$tie_count = 0;
 	//This function checks to see if anyone has won the game
 	function did_they_win($scoreboard) {
-		//Variable to keep track of how many spots are left
-			$availible_boxes = 9;
+		
+
 		//Create an empty array with 8 spots to add winning combination strings from the $scoreboard
 		$winning_combinations = array('', '', '', '', '', '', '', '');
 			//Assign one winning combination to each of the spots in the array
@@ -31,7 +32,7 @@
 					
 				}
 				//If one of the combinations has three ones in it then O's have won
-				elseif ($value == "222") {
+				else if ($value == "222") {
 					//Add one to player 2's wins
 					$player2_wins += 1;
 					$availible_boxes -= 1;
@@ -42,13 +43,7 @@
 			
 			}
 			
-			//If the number of availible boxes is 0 then it's a tie
-			if ($availible_boxes == 0) {
-				//Display the results
-				echo "It's a draw!!!";
-				//Add one to the number of tied games
-				$tie_count += 1;
-			}
+			
 	}
 
 	//This function resets the game
@@ -62,6 +57,7 @@
 	//Add a "X" or an "O" or a "@" in each box based on the query string parameter ($scoreboard)
 	//Box number is the number of each box which is used as the position in the query string
 	function fill_boxes($scoreboard, $box_number, $turn) {
+	
 
 		//If the position in the query string is equal to "1" then that will display a "X" in the box
 		if ($scoreboard[$box_number] == "1") {
@@ -95,10 +91,17 @@
 				$player1_turn += 1;
 			} 
 			//If one of the numbers in the query string is a "2"
-			elseif ($scoreboard[$number] == "2") {
+			else if ($scoreboard[$number] == "2") {
 				//add 1 to player 2 (O)'s turn count
 				$player2_turn += 1;
 			}
+		}
+		//If the number of availible boxes is 0 then it's a tie
+		if (($player1_turn + $player2_turn) == 9) {
+			//Display the results
+			echo "It's a draw!!!";
+			//Add one to the number of tied games
+			$tie_count += 1;
 		}
 		//If player 1's turn count is greater than player 2's
 		if ($player1_turn > $player2_turn) {

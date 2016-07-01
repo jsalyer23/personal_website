@@ -59,7 +59,7 @@
 				<input type="submit" name="reset" value="reset"><?php enable_reset(); ?></input>
 			</form>
 		</div>
-		<div>
+		<div class="scoreBoard">
 			<!--Might make these individual divs?-->
 			<h2>Player 1 Wins: <?php echo $player1_wins; ?></h2>
 			<h2>Player 2 Wins: <?php echo $player2_wins; ?></h2>
