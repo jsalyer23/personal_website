@@ -12,7 +12,7 @@
 	//Assign the function that determines who's turn it is to a variable
 	$turn = whos_turn($scoreboard);
 	//Assign the function that checks if anyone has won the game to a variable
-	$score_keeper = did_they_win($scoreboard);
+	$score_keeper = did_they_win($scoreboard, $turn);
 	//Add the functions that return 1 for each win each player has to variables
 	$add_win_player1 = add_to_win_player1($score_keeper);
 	$add_win_player2 = add_to_win_player2($score_keeper);
@@ -21,10 +21,17 @@
 	$_SESSION['player_2'] = $add_win_player2;
 	$p1_wins = $_SESSION['player_1'];
 	$p2_wins = $_SESSION['player_2'];
+	$end_game = end_game_if_won($score_keeper);
+	if ($end_game == '<a href="index.php?scoreboard=333333333">New Game?</a>') {
+		echo $end_game;
+	}
+	else {
+		echo $score_keeper;
+	}
 	//Display a message saying who won if there is a winner
-	echo $score_keeper;
-	print_r($_GET);
-	print_r($_SESSION);
+	// echo $score_keeper;
+	// print_r($_GET);
+	// print_r($_SESSION);
 ?>
 
 	<div class="gameContainer">
@@ -74,7 +81,7 @@
 		<div>
 			<!--Reset button for the game-->
 			<!-- <?php '<a href=index.php?scoreboard=3333333330000' . $scoreboard . '>NEW GAME?</a>'; ?> -->
-			<a href=index.php?scoreboard=3333333330000>NEW GAME?</a>
+			<!-- <a href=index.php?scoreboard=333333333>NEW GAME?</a> -->
 		</div>
 		<div class="scoreBoard">
 			<!--Might make these individual divs?-->

@@ -9,7 +9,7 @@
 	//This function saves the previous games results somehow...
 	// function keep_multiple_results()
 	//This function checks to see if anyone has won the game
-	function did_they_win($scoreboard) {
+	function did_they_win($scoreboard, $turn) {
 
 		//Create an empty array with 8 spots to add winning combination strings from the $scoreboard
 		$winning_combinations = array('', '', '', '', '', '', '', '');
@@ -34,6 +34,9 @@
 					// Display the winner
 					return "Player 2 Wins!!!";
 				}
+			}
+			if ($turn == "It's a draw!!!") {
+				return "";
 			}
 	}
 // 9, 10, 11, 12
@@ -60,6 +63,14 @@
 			$player2_wins += 1;
 			//Display the number of wins for Player 2
 			return $player2_wins;
+		}
+	}
+
+	//This function will return a link to play again
+	function end_game_if_won($score_keeper) {
+		//If someone wins the game
+		if ($score_keeper == "Player 1 Wins!!!" || $score_keeper == "Player 2 Wins!!!") {
+			return '<a href="index.php?scoreboard=333333333">Play Again</a>';
 		}
 	}
 
@@ -117,10 +128,9 @@
 		//If the number of availible boxes is 0 then it's a tie
 		if (($player1_turn + $player2_turn) == 9) {
 			//Display the results
-			echo "It's a draw!!!";
-			//Add one to the number of tied games
-			$tie_count += 1;
+			return "It's a draw!!!";
 		}
+
 		//If player 1's turn count is greater than player 2's
 		if ($player1_turn > $player2_turn) {
 			//then it's player 2's turn
