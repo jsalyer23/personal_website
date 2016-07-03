@@ -1,5 +1,4 @@
 <?php
-	//Start the session
 	session_start();
 	//Page label for navigation page
 	$thisPage = "Tic Tac Toe";
@@ -7,8 +6,14 @@
 	include("top3.php");
 	//Guts of the game...
 	include("functions2.php");
+	if (!isset($_SESSION['scoreboard'])) {
+		$_SESSION['scoreboard'] = "333333333";
+	}
+	else {
+			$scoreboard = $_GET['scoreboard'];
+	}
 	//Assign the $_GET associative array to a variable
-	$scoreboard = $_GET['scoreboard'];
+
 	//Assign the function that determines who's turn it is to a variable
 	$turn = whos_turn($scoreboard);
 	//Assign the function that checks if anyone has won the game to a variable
@@ -16,22 +21,20 @@
 	//Add the functions that return 1 for each win each player has to variables
 	$add_win_player1 = add_to_win_player1($score_keeper);
 	$add_win_player2 = add_to_win_player2($score_keeper);
-	//Add the results of the add_to_win_player functions to session Array to keep for next game
-	$_SESSION['player_1'] = $add_win_player1;
-	$_SESSION['player_2'] = $add_win_player2;
-	$p1_wins = $_SESSION['player_1'];
-	$p2_wins = $_SESSION['player_2'];
-	$end_game = end_game_if_won($score_keeper);
-	if ($end_game == '<a href="index.php?scoreboard=333333333">New Game?</a>') {
-		echo $end_game;
-	}
-	else {
-		echo $score_keeper;
-	}
+	//Display a message saying that there was a tie
+	$draw_message = message_for_draws($score_keeper, $turn);
+	//Add the funtions that return 1 for each tied game
+	$add_draw = add_to_draws($turn, $draw_message);
+	$game_results = game_results($add_draw, $add_win_player1, $add_win_player2);
+	//Join $game_results Array to be added to the end of the query string
+	$joined_game_results = implode('', $game_results);
+	$game_history = game_history($scoreboard);
+	print_r($_SESSION);
+	print_r($game_results);
 	//Display a message saying who won if there is a winner
-	// echo $score_keeper;
-	// print_r($_GET);
-	// print_r($_SESSION);
+	echo $score_keeper;
+	echo $draw_message;
+	
 ?>
 
 	<div class="gameContainer">
@@ -78,16 +81,14 @@
 			</div>
 		</div>
 		<br>
-		<div>
-			<!--Reset button for the game-->
-			<!-- <?php '<a href=index.php?scoreboard=3333333330000' . $scoreboard . '>NEW GAME?</a>'; ?> -->
-			<!-- <a href=index.php?scoreboard=333333333>NEW GAME?</a> -->
-		</div>
+
 		<div class="scoreBoard">
 			<!--Might make these individual divs?-->
-			<h2>Player 1 Wins: <?php echo $p1_wins; ?></h2>
-			<h2>Player 2 Wins: <?php echo $p2_wins; ?></h2>
-			<h2>Draws: <?php echo $tie_count; ?></h2>
+			<h2>Player 1 Wins: <?php echo $add_win_player1; ?></h2>
+			<h2>Player 2 Wins: <?php echo $add_win_player2; ?></h2>
+			<h2>Draws: <?php echo $add_draw; ?></h2>
+			<h2><a href=index.php?scoreboard=333333333>Reset Game</a></h2>
+			<?php echo '<a href=index.php?scoreboard=333333333' . $joined_game_results . $game_history . '>Play Again</a>'; ?>
 		</div>
 	</div>
 
