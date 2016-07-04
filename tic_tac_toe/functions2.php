@@ -83,6 +83,7 @@
 			return $draw_count;
 		}
 	}
+
 	//This function puts the results of the game into an Array that will be added to the end of the query string
 	//$add_draw = result of add_to_draws function
 	//$add_win_player1 = result of add_to_win_player1
@@ -106,19 +107,77 @@
 		}
 		return $game_results;
 	}
-
 	function game_history($scoreboard) {
 		if (strlen($scoreboard) > 9) {
 			return substr($scoreboard, 10);
 		}
 	}
 
-	// function track_multiple_games($joined_game_results, $game_results) {
-	// 	if ($joined_game_results != null) {
-	// 		array_push($game_results, $joined_game_results);
-	// 		return $game_results;
+	function player1_game_history($scoreboard) {
+		$player1_total_wins = 0;
+		foreach ($scoreboard as $games) {
+			if ($games == "5") {
+				$player1_total_wins += 1;
+				return $player1_total_wins;
+			}
+		}
+	}
+
+	function player2_game_history($scoreboard) {
+		$player2_total_wins = 0;
+		foreach ($scoreboard as $games) {
+			if ($games == "6") {
+				$player2_total_wins += 1;
+				return $player2_total_wins;
+			}
+		}
+	}
+
+	function tied_game_history($scoreboard) {
+		$total_draws = 0;
+		foreach ($scoreboard as $games) {
+			if ($games == "7") {
+				$total_draws += 1;
+				return $total_draws;
+			}
+		}
+	}
+	//This function keeps track of previous game result
+
+
+	// function game_history($scoreboard, $add_win_player1, $add_win_player2, $add_to_draws) {
+	// 	if (empty($_SESSION)) {
+	// 		$_SESSION['player1'] = 0;
+	// 		$_SESSION['player2'] = 0;
+	// 		$_SESSION['draws'] = 0;
+	// 	}
+
+	// 	if ($add_win_player1 == 1) {
+	// 		$_SESSION['player1']++;
+	// 		echo '<a href=index.php?scoreboard=333333333' . $scoreboard[9] . '>Play Again</a>';
+	// 	}
+	// 	else if ($add_win_player2 == 1) {
+	// 		$_SESSION['player2']++;
+	// 		echo '<a href=index.php?scoreboard=333333333' . $scoreboard[9] . '>Play Again</a>';
+	// 	}
+	// 	else if ($add_to_draws == 1) {
+	// 		$_SESSION['draws']++;
+	// 		echo '<a href=index.php?scoreboard=333333333' . $scoreboard[9] . '>Play Again</a>';
 	// 	}
 	// }
+	//This function prints out the option to play against a computer or another person
+	//$scoreboard is the query string
+	function computer_or_person($scoreboard) {
+		//If the 10th number in the query string is equal to 0 then the game is set for two players
+		if ($scoreboard[9] == 0) {
+			//Print out the option to play against a computer instead
+			return '<a href=index.php?scoreboard=3333333338>VS Computer</a><br>';
+		}
+		else {
+			//If the game is set up to play against the computer print a link to play another person
+			return '<a href=index.php?scoreboard=3333333330>VS Person</a><br>';
+		}
+	}
 	//Add a "X" or an "O" or a "@" in each box based on the query string parameter ($scoreboard)
 	//Box number is the number of each box which is used as the position in the query string
 	function fill_boxes($scoreboard, $box_number, $turn) {
@@ -175,6 +234,30 @@
 	}
 
 	//This function determines what the computer will chose
-	// function computer_choice()
+	// function computer_player($scoreboard) {
+	// 	$availible_moves = array();
+	// 	for ($box = 0; $box < 9; $box++) {
+	// 		if ($scoreboard[$box] == "3") {
+	// 			array_push($availible_moves, $box);
+	// 			return $availible_moves;
+	// 		}
+	// 	}
+		// if ($turn == 2) {
+		// 	foreach ($availible_moves as $choices) {
+		// 		if ($availible_moves[$choices] == "4") {
+		// 			$scoreboard[4] = "2";
+		// 			return $scoreboard;
+		// 		}
+		// 		else if ($score_keeper[$scoreboard] == $winning_combinations) {
+		// 			$scoreboard[$choices] == "2";
+		// 			return $scoreboard;
+		// 		}
+		// 		else if ($scoreboard[$choices] == "3" && ($choices == "0" || $choices == "2" || $choices == "6" || $choices == "8")){
+		// 			$scoreboard[$choices] = "2";
+		// 			return $scoreboard;
+		// 		}
+		// 	}
+		// }
+
 	
 ?>

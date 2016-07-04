@@ -1,37 +1,60 @@
 <?php
 	include("functions2.php");
-	echo "------------Testing Starts Here----------------";
-	echo "Testing that if Player 1 wins, 5 is added to the $game_results array.\n\n";
+	computer_player("333333333333");
+	print_r($availible_moves);
 
-	if (game_results(0, 1, 0) == $game_results[0]) {
-		echo "Success";
-		print_r($game_results);
-	}
-	else {
-		echo "Failure";
-	}
+	// 	echo "------------Testing Starts Here----------------";
+	// echo "Testing that if computer player works.\n\n";
 
-		echo "------------Testing Starts Here----------------";
-	echo "Testing that if Player 1 wins, 6 is added to the $game_results array.\n\n";
+	// if (computer_player("211333333", 2) == "211323333") {
+	// 	echo "Success";
+	// 	print_r($availible_moves);
+	// }
+	// else {
+	// 	echo "Failure";
+	// }
+	// 	echo "------------Testing Starts Here----------------";
+	// echo "Testing that if Player 1 wins, 5 is added to the $game_results array.\n\n";
 
-	if (game_results(0, 0, 1) == $game_results[0]) {
-		echo "Success";
-		print_r($game_results);
-	}
-	else {
-		echo "Failure";
-	}
+	// if (computer_player($scoreboard, $score_keeper, $turn) == $game_results[0]) {
+	// 	echo "Success";
+	// 	print_r($game_results);
+	// }
+	// else {
+	// 	echo "Failure";
+	// }
+	// echo "------------Testing Starts Here----------------";
+	// echo "Testing that if Player 1 wins, 5 is added to the $game_results array.\n\n";
 
-		echo "------------Testing Starts Here----------------";
-	echo "Testing that if there is a tie, 7 is added to the $game_results array.\n\n";
+	// if (game_results(0, 1, 0) == $game_results[0]) {
+	// 	echo "Success";
+	// 	print_r($game_results);
+	// }
+	// else {
+	// 	echo "Failure";
+	// }
 
-	if (game_results(1, 0, 0) == $game_results[0]) {
-		echo "Success";
-		print_r($game_results);
-	}
-	else {
-		echo "Failure";
-	}
+	// 	echo "------------Testing Starts Here----------------";
+	// echo "Testing that if Player 1 wins, 6 is added to the $game_results array.\n\n";
+
+	// if (game_results(0, 0, 1) == $game_results[0]) {
+	// 	echo "Success";
+	// 	print_r($game_results);
+	// }
+	// else {
+	// 	echo "Failure";
+	// }
+
+	// 	echo "------------Testing Starts Here----------------";
+	// echo "Testing that if there is a tie, 7 is added to the $game_results array.\n\n";
+
+	// if (game_results(1, 0, 0) == $game_results[0]) {
+	// 	echo "Success";
+	// 	print_r($game_results);
+	// }
+	// else {
+	// 	echo "Failure";
+	// }
 	// echo "---------------Testing Starts Here-----------------\n\n";
 	// echo "Testing if Player 1 wins if they have 3 X's VERTICALLY on the LEFT COLUMN\n\n";
 	// if (did_they_win("111223333") == "Player 1 Wins!!!"){
