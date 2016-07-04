@@ -178,6 +178,32 @@
 			return '<a href=index.php?scoreboard=3333333330>VS Person</a><br>';
 		}
 	}
+
+	//This function checks for empty spaces and adds the empty spaces into an Array
+	function available_moves($scoreboard) {
+		$available_moves = array();
+		if ($scoreboard[9] == "8") {
+			for ($box = 0; $box < 9; $box++) {
+				if ($scoreboard[$box] == "3") {
+					array_push($available_moves, $scoreboard[$box]);
+				}
+			}
+			return $available_moves;
+		}
+	}
+
+	//This function checks for which spaces are occupied by the person playing
+	function player_moves($scoreboard) {
+		$player_moves = array();
+		if ($scoreboard[9] == "8") {
+			for ($box = 0; $box < 9; $box++) {
+				if ($scoreboard[$box] == "1") {
+					array_push($player_moves, $scoreboard[$box]);
+				}
+			}
+			return $player_moves;
+		}
+	}
 	//Add a "X" or an "O" or a "@" in each box based on the query string parameter ($scoreboard)
 	//Box number is the number of each box which is used as the position in the query string
 	function fill_boxes($scoreboard, $box_number, $turn) {
@@ -217,7 +243,7 @@
 				$player2_turn += 1;
 			}
 		}
-		//If the number of availible boxes is 0 then it's a tie
+		//If the number of available boxes is 0 then it's a tie
 		if (($player1_turn + $player2_turn) == 9) {
 			//Display the results
 			return "It's a draw!!!";
@@ -235,16 +261,16 @@
 
 	//This function determines what the computer will chose
 	// function computer_player($scoreboard) {
-	// 	$availible_moves = array();
+	// 	$available_moves = array();
 	// 	for ($box = 0; $box < 9; $box++) {
 	// 		if ($scoreboard[$box] == "3") {
-	// 			array_push($availible_moves, $box);
-	// 			return $availible_moves;
+	// 			array_push($available_moves, $box);
+	// 			return $available_moves;
 	// 		}
 	// 	}
 		// if ($turn == 2) {
-		// 	foreach ($availible_moves as $choices) {
-		// 		if ($availible_moves[$choices] == "4") {
+		// 	foreach ($available_moves as $choices) {
+		// 		if ($available_moves[$choices] == "4") {
 		// 			$scoreboard[4] = "2";
 		// 			return $scoreboard;
 		// 		}

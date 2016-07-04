@@ -1,28 +1,26 @@
 <?php
 	include("functions2.php");
-	computer_player("333333333333");
-	print_r($availible_moves);
 
-	// 	echo "------------Testing Starts Here----------------";
-	// echo "Testing that if computer player works.\n\n";
+		echo "------------Testing Starts Here----------------\n\n";
+	echo "Testing that available_moves() function adds available spaces to Array. Should return [3,3,3,3,3,3].\n";
 
-	// if (computer_player("211333333", 2) == "211323333") {
-	// 	echo "Success";
-	// 	print_r($availible_moves);
-	// }
-	// else {
-	// 	echo "Failure";
-	// }
-	// 	echo "------------Testing Starts Here----------------";
-	// echo "Testing that if Player 1 wins, 5 is added to the $game_results array.\n\n";
+	if (available_moves("2113333338") == array(3, 3, 3, 3, 3, 3)) {
+		echo "Success";
+		print_r($available_moves);
+	}
+	else {
+		echo "Failure";
+	}
+		echo "------------Testing Starts Here----------------\n\n";
+	echo "Testing that player_moves() adds all of the taken spaces to an Array. Should return [1, 1, 1].\n";
 
-	// if (computer_player($scoreboard, $score_keeper, $turn) == $game_results[0]) {
-	// 	echo "Success";
-	// 	print_r($game_results);
-	// }
-	// else {
-	// 	echo "Failure";
-	// }
+	if (player_moves('1112233338') == array(1, 1, 1)) {
+		echo "Success";
+		print_r($player_moves);
+	}
+	else {
+		echo "Failure";
+	}
 	// echo "------------Testing Starts Here----------------";
 	// echo "Testing that if Player 1 wins, 5 is added to the $game_results array.\n\n";
 
