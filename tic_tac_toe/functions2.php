@@ -107,64 +107,64 @@
 		}
 		return $game_results;
 	}
+
+	//This function will return a substring containing the wins to the end of the query string ($scoreboard)
 	function game_history($scoreboard) {
+		//If the length of the query string is more than just the original 9 spots
 		if (strlen($scoreboard) > 9) {
+			//Create a substring starting at the 10th position in the query string and return it
 			return substr($scoreboard, 10);
 		}
 	}
 
+	//This function checks how many wins Player 1 has had and adds them out to be printed to the screen
 	function player1_game_history($scoreboard) {
+		//Start Player 1's wins at 0
 		$player1_total_wins = 0;
+		//Iterate over each number in the query string($scoreboard)
 		foreach ($scoreboard as $games) {
+			//If any of the numbers are equal to 5 (which represents a win for Player 1)
 			if ($games == "5") {
+				//Add one to Player 1's total wins
 				$player1_total_wins += 1;
+				//Display the total number of wins for Player 1
 				return $player1_total_wins;
 			}
 		}
 	}
 
+	//This function checks how many wins Player 2 has had and adds them out to be printed to the screen
 	function player2_game_history($scoreboard) {
+		//Start Player 2's wins at 0
 		$player2_total_wins = 0;
+		//Iterate over each number in the query string($scoreboard)
 		foreach ($scoreboard as $games) {
+			//If any of the numbers are equal to 6 (which represents a win for Player 2)
 			if ($games == "6") {
+				//Add one to Player 2's total wins
 				$player2_total_wins += 1;
+				//Display the total number of wins for Player 2
 				return $player2_total_wins;
 			}
 		}
 	}
 
+	//This function checks how many draws are present in the game history and adds them up to be displayed on the screen
 	function tied_game_history($scoreboard) {
+		//Start total draw count to 0
 		$total_draws = 0;
+		//Iterate over each number in the query string ($scoreboard)
 		foreach ($scoreboard as $games) {
+			//If any of the numbers are equal to 7 (which represents a draw)
 			if ($games == "7") {
+				//Add one to the total number of draws
 				$total_draws += 1;
+				//Displayer the total number of draws
 				return $total_draws;
 			}
 		}
 	}
-	//This function keeps track of previous game result
 
-
-	// function game_history($scoreboard, $add_win_player1, $add_win_player2, $add_to_draws) {
-	// 	if (empty($_SESSION)) {
-	// 		$_SESSION['player1'] = 0;
-	// 		$_SESSION['player2'] = 0;
-	// 		$_SESSION['draws'] = 0;
-	// 	}
-
-	// 	if ($add_win_player1 == 1) {
-	// 		$_SESSION['player1']++;
-	// 		echo '<a href=index.php?scoreboard=333333333' . $scoreboard[9] . '>Play Again</a>';
-	// 	}
-	// 	else if ($add_win_player2 == 1) {
-	// 		$_SESSION['player2']++;
-	// 		echo '<a href=index.php?scoreboard=333333333' . $scoreboard[9] . '>Play Again</a>';
-	// 	}
-	// 	else if ($add_to_draws == 1) {
-	// 		$_SESSION['draws']++;
-	// 		echo '<a href=index.php?scoreboard=333333333' . $scoreboard[9] . '>Play Again</a>';
-	// 	}
-	// }
 	//This function prints out the option to play against a computer or another person
 	//$scoreboard is the query string
 	function computer_or_person($scoreboard) {
