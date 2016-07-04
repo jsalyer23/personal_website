@@ -1,6 +1,103 @@
 <?php
 	include("functions2.php");
 
+	// 	*********************************************************************************************
+	// Tests for computer_game_history() function (looks for games the computer won (8s) in the sub 
+	// string taken from the end of the query string and returns the number of them found)
+	// *********************************************************************************************
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that computer_game_history() looks for 8s in the sub sting and counts them, should return 3.\n";
+
+	// if (computer_game_history("586878") == 3) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that computer_game_history() looks for 8s in the sub sting and counts them, should return 7.\n";
+
+	// if (computer_game_history("5868888878") == 7) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that computer_game_history() doesn't find any 8s, should return 0.\n";
+
+	// if (computer_game_history("555667") == 0) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// 	*********************************************************************************************
+	// Tests for add_to_win_computer() function (checks if the computer player has been chosen and if
+	// it has won. If both those things are true then it returns 1)
+	// *********************************************************************************************
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that add_to_win_computer() checks if the computer player is Player 2 and if it has won,\n 
+	// 	should return 1.\n";
+
+	// if (add_to_win_computer("Player 2 Wins!!!", "2113233328") == 1) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// 	echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that add_to_win_computer() sees that Player 2 is a human, should return nothing.\n";
+
+	// if (add_to_win_computer("Player 2 Wins!!!", "2113233320") == "") {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+
+
+	// 	*********************************************************************************************
+	// Tests for computer_player() function (checks if the center space is taken and takes it if it
+	// isn't)
+	// *********************************************************************************************
+
+	echo "------------Testing Starts Here----------------";
+	echo "\n\n";
+	echo "Testing that computer_player() checks if the center space is taken and takes it if it isn't, 
+		should return '1332211338'\n";
+
+	if (computer_player("1332311338", 2) == "1332211338") {
+		echo "Success\n";
+	}
+	else {
+		echo "Failure\n";
+	}
+
+	echo "------------Testing Starts Here----------------";
+	echo "\n\n";
+	echo "Testing that computer_player() checks if the center space is taken and doesn't take it, 
+		should return '1332111238'\n";
+
+	if (computer_player("1332111238", 2) == "1332111238") {
+		echo "Success\n";
+	}
+	else {
+		echo "Failure\n";
+	}
+
 	//*********************************************************************************************
 	//Tests for tied_game_history() function (looks for tied games (7s) in the sub string taken
 	//from the end of the query string and returns the number of them found)
@@ -184,7 +281,7 @@
 	// echo "\n\n";
 	// echo "Testing that if Player 1 wins, 5 is added to the $game_results array.\n";
 
-	// if (game_results(0, 1, 0) == array("5")) {
+	// if (game_results(0, 1, 0, 0) == array("5")) {
 	// 	echo "Success\n";
 	// }
 	// else {
@@ -195,7 +292,7 @@
 	// 	echo "\n\n";
 	// echo "Testing that if Player 1 wins, 6 is added to the $game_results array.\n";
 
-	// if (game_results(0, 0, 1) == array("6")) {
+	// if (game_results(0, 0, 1, 0) == array("6")) {
 	// 	echo "Success\n";
 	// }
 	// else {
@@ -206,7 +303,18 @@
 	// 	echo "\n\n";
 	// echo "Testing that if there is a tie, 7 is added to the $game_results array.\n";
 
-	// if (game_results(1, 0, 0) == array("7")) {
+	// if (game_results(1, 0, 0, 0) == array("7")) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that if the computer wins, 8 is added to the $game_results array.\n";
+
+	// if (game_results(0, 0, 0, 1) == array("8")) {
 	// 	echo "Success\n";
 	// }
 	// else {

@@ -1,11 +1,9 @@
 <?php
 	session_start();
-	//Create variable to keep track of the wins
-	$player1_wins = 0;
-	$player2_wins = 0;
+	
+	
 
-	//Create variable to keep track of the draws
-	$draw_count = 0;
+	
 
 	
 	//This function checks to see if anyone has won the game
@@ -38,6 +36,14 @@
 			}
 		
 	}
+
+	function message_for_computer_win($score_keeper, $scoreboard) {
+		if ($scoreboard[9] == "8") {
+			if ($score_keeper == "Player 2 Wins!!!") {
+				return "The Computer Won!!!";
+			}
+		}
+	}
 	//This function displays a message if it's a draw and nothing if it's not a draw
 	//$turn = the result of whos_turn() function
 	//$score_keeper = the result of did_they_win() function
@@ -55,6 +61,8 @@
 	//This function adds 1 to player 1's win count if they have won
 	//$score_keeper = the result of did_they_win() function
 	function add_to_win_player1($score_keeper) {
+		//Create variable to keep track of the wins
+		$player1_wins = 0;
 		//If $score_keeper is equal to the string "Player 1 Wins!!!"
 		if ($score_keeper == "Player 1 Wins!!!") {
 			//Add 1 to Player 1's wins
@@ -63,21 +71,37 @@
 			return $player1_wins;
 		}
 	}
+	
 	//This function adds 1 to player 2's win count if they have won
 	//$score_keeper = the result of did_they_win() function
-	function add_to_win_player2($score_keeper){
-		//If $score_keeper is equal to the string "Player 2 Wins!!!"
-		if ($score_keeper == "Player 2 Wins!!!") {
+	function add_to_win_player2($score_keeper, $scoreboard){
+		//Create variable to keep track of the wins
+		$player2_wins = 0;
+		//If Player 2 is a person and $score_keeper is equal to the string "Player 2 Wins!!!"
+		if ($scoreboard[9] == "0" && $score_keeper == "Player 2 Wins!!!") {		
 			//Add 1 to Player 2's wins
 			$player2_wins += 1;
 			//Display the number of wins for Player 2
 			return $player2_wins;
 		}
+
 	}
+
+	//This function adds 1 to computer player win count if Player 1 loses
+	function add_to_win_computer($score_keeper, $scoreboard) {
+		$computer_wins = 0;
+		if ($scoreboard[9] == "8" && $score_keeper == "Player 2 Wins!!!") {
+			$computer_wins += 1;
+			return $computer_wins;
+		}
+	}
+
 	//This function adds 1 to the draw count
 	//$turn = the result of whos_turn() function
 	//$draw_message = the result of message_for_draws() function
 	function add_to_draws($turn, $draw_message) {
+		//Create variable to keep track of the draws
+		$draw_count = 0;
 		//If the game is a draw
 		if ($turn == "It's a draw!!!" && $draw_message != "") {
 			//Add 1 to the number of draws
@@ -91,22 +115,28 @@
 	//$add_draw = result of add_to_draws function
 	//$add_win_player1 = result of add_to_win_player1
 	//$add_win_player2 = result of add_to_win_player2
-	function game_results($add_draw, $add_win_player1, $add_win_player2) {
+	//$add_win_computer = result of add_to_win_computer
+	function game_results($add_draw, $add_win_player1, $add_win_player2, $add_win_computer) {
 		$game_results = array();
 		//If there is a draw
 		if ($add_draw == 1) {
-			//Add the number 7 to the end of the results Array
+			//Add the number 7 to the results Array
 			array_push($game_results, "7");
 		}
 		//If player 1 wins
 		if ($add_win_player1 == 1) {
-			//Add the number 5 to the end of the results Array
+			//Add the number 5 to the results Array
 			array_push($game_results, "5");
 		}
 		//If there is a draw
 		if ($add_win_player2 == 1) {
-			//Add the number 6 to the end of the results Array
+			//Add the number 6 to the results Array
 			array_push($game_results, "6");
+		}
+		//If the computer wins
+		if ($add_win_computer == 1) {
+			//Add the number 8 to the results Array
+			array_push($game_results, "8");
 		}
 		return $game_results;
 	}
@@ -146,6 +176,14 @@
 		//Display the number of tied games (7s) on the screen 
 		return $draw_total;
 	}
+	//This function checks how many games have been won by the computer player by counting them from within the
+	//$game_history sub string then returns that number to the screen
+	function computer_game_history($game_history) {
+		//substr_count() counts how many times a specified sub string appears in another string
+		$computer_total_wins = substr_count($game_history, "8");
+		//Display the number of computer player wins (8s)
+		return $computer_total_wins;
+	}
 
 	//This function prints out the option to play against a computer or another person
 	//$scoreboard is the query string
@@ -158,6 +196,20 @@
 		else {
 			//If the game is set up to play against the computer print a link to play another person
 			return '<a href=index.php?scoreboard=3333333330>VS Person</a><br>';
+		}
+	}
+
+	//This function will check who Player 1 is currently playing against and returns either an 8 (computer player)
+	//or a 0 (human player) to the end of the query string allowing Player 1 to "Play Again"
+	function play_computer_again($scoreboard) {
+		//If the 10th number in the query string is 8
+		if ($scoreboard[9] == "8") {
+			//Return 8 to be added to the query string if the game is reloaded
+			return "8";
+		}
+		else {
+			//Return 0 to be added to the query string if the game is reloaded
+			return "0";
 		}
 	}
 
@@ -198,6 +250,18 @@
 			return $player_moves;
 		}
 	}
+
+	//This function contains the logic for the computer opponent. Computer always goes 2nd
+	function computer_player($scoreboard, $turn) {
+		//If  Player 1 is playing against the computer (8), it's the computer's turn, and the center
+		//space has not been taken
+		if ($scoreboard[9] == "8" && $turn == 2 && $scoreboard[4] == "3") {
+			//The computer takes the center space
+			$scoreboard[4] = "2";
+			//Return the new query string
+			return $scoreboard;
+		}
+	}
 	//Add a "X" or an "O" or a "@" in each box based on the query string parameter ($scoreboard)
 	//Box number is the number of each box which is used as the position in the query string
 	function fill_boxes($scoreboard, $box_number, $turn) {
@@ -224,6 +288,7 @@
 		//Set both player's turn counts to 0
 		$player1_turn = 0;
 		$player2_turn = 0;
+
 		//Cycle through each number (character) in the query string ($scoreboard)
 		for ($number = 0; $number < strlen($scoreboard); $number++) {
 			//If one of the numbers in the query string is a "1"
@@ -252,32 +317,5 @@
 			return 1;	
 		}
 	}
-
-	//This function determines what the computer will chose
-	// function computer_player($scoreboard) {
-	// 	$available_moves = array();
-	// 	for ($box = 0; $box < 9; $box++) {
-	// 		if ($scoreboard[$box] == "3") {
-	// 			array_push($available_moves, $box);
-	// 			return $available_moves;
-	// 		}
-	// 	}
-		// if ($turn == 2) {
-		// 	foreach ($available_moves as $choices) {
-		// 		if ($available_moves[$choices] == "4") {
-		// 			$scoreboard[4] = "2";
-		// 			return $scoreboard;
-		// 		}
-		// 		else if ($score_keeper[$scoreboard] == $winning_combinations) {
-		// 			$scoreboard[$choices] == "2";
-		// 			return $scoreboard;
-		// 		}
-		// 		else if ($scoreboard[$choices] == "3" && ($choices == "0" || $choices == "2" || $choices == "6" || $choices == "8")){
-		// 			$scoreboard[$choices] = "2";
-		// 			return $scoreboard;
-		// 		}
-		// 	}
-		// }
-
 	
 ?>
