@@ -118,13 +118,13 @@
 	}
 
 	//This function checks how many wins Player 1 has had and adds them out to be printed to the screen
-	function player1_game_history($scoreboard) {
+	function player1_game_history($game_history) {
 		//Start Player 1's wins at 0
 		$player1_total_wins = 0;
 		//Iterate over each number in the query string($scoreboard)
-		foreach ($scoreboard as $games) {
+		for ($games = 0; $games <= strlen($game_history); $games++) {
 			//If any of the numbers are equal to 5 (which represents a win for Player 1)
-			if ($games == "5") {
+			if ($game_history[$games] == "5") {
 				//Add one to Player 1's total wins
 				$player1_total_wins += 1;
 				//Display the total number of wins for Player 1
@@ -134,13 +134,13 @@
 	}
 
 	//This function checks how many wins Player 2 has had and adds them out to be printed to the screen
-	function player2_game_history($scoreboard) {
+	function player2_game_history($total_game_history) {
 		//Start Player 2's wins at 0
 		$player2_total_wins = 0;
 		//Iterate over each number in the query string($scoreboard)
-		foreach ($scoreboard as $games) {
+		for ($games = 0; $games <= strlen($total_game_history); $games++) {
 			//If any of the numbers are equal to 6 (which represents a win for Player 2)
-			if ($games == "6") {
+			if ($total_game_history[$games] == "6") {
 				//Add one to Player 2's total wins
 				$player2_total_wins += 1;
 				//Display the total number of wins for Player 2
@@ -150,13 +150,13 @@
 	}
 
 	//This function checks how many draws are present in the game history and adds them up to be displayed on the screen
-	function tied_game_history($scoreboard) {
+	function tied_game_history($game_history) {
 		//Start total draw count to 0
 		$total_draws = 0;
 		//Iterate over each number in the query string ($scoreboard)
-		foreach ($scoreboard as $games) {
+		for ($games = 0; $games <= strlen($game_history); $games++) {
 			//If any of the numbers are equal to 7 (which represents a draw)
-			if ($games == "7") {
+			if ($game_history[$games] == "7") {
 				//Add one to the total number of draws
 				$total_draws += 1;
 				//Displayer the total number of draws

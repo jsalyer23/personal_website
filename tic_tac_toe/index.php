@@ -29,10 +29,14 @@
 	$joined_game_results = implode('', $game_results);
 	//Creates a substring of numbers starting at $scoreboard[9] to add to the end of the query string
 	$game_history = game_history($scoreboard);
+	//Shows a link to play against a computer or another person depending on how the game is currently set up
 	$computer_or_person = computer_or_person($scoreboard);
+	//These return the number of wins each player has
 	$p1_game_history = player1_game_history($scoreboard);
 	$p2_game_history = player2_game_history($scoreboard);
+	//This returns the number of draws
 	$tied_history = tied_game_history($scoreboard);
+	$total_game_history = $joined_game_results . $game_history;
 	print_r($scoreboard);
 	// print_r($game_history);
 	//Display a message saying who won if there is a winner
