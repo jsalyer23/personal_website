@@ -2,41 +2,141 @@
 	include("functions2.php");
 
 	//*********************************************************************************************
+	//Tests for tied_game_history() function (looks for tied games (7s) in the sub string taken
+	//from the end of the query string and returns the number of them found)
+	//*********************************************************************************************
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that tied_game_history() looks for 7s in the sub sting and counts them, should return 3.\n";
+
+	// if (tied_game_history("57677") == 3) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that tied_game_history() looks for 7s in the sub sting and counts them, should return 5.\n";
+
+	// if (tied_game_history("5767777") == 5) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that tied_game_history() looks for 7s in the sub sting and doesn't find any, should return 0.\n";
+
+	// if (tied_game_history("5655") == 0) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	//*********************************************************************************************
+	//Tests for player2_game_history() function (looks for Player 2 wins (6s) in the sub string taken
+	//from the end of the query string and returns the number of them found)
+	//*********************************************************************************************
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that player2_game_history() looks for 6s in the sub sting and counts them, should return 1.\n";
+
+	// if (player2_game_history("567") == 1) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that player2_game_history() looks for 6s in the sub sting and counts them, should return 7.\n";
+
+	// if (player2_game_history("56566666657") == 7) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that player2_game_history() looks for 6s in the sub sting and doesn't find any, should return 0.\n";
+
+	// if (player2_game_history("5557") == 0) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	//*********************************************************************************************
 	//Tests for player1_game_history() function (looks for Player 1 wins (5s) in the sub string taken
-	//from the end of the query string and increments by one for each 5 found)
+	//from the end of the query string and returns the number of them found)
 	//*********************************************************************************************
 	
-	echo "------------Testing Starts Here----------------";
-	echo "\n\n";
-	echo "Testing that player1_game_history() looks for 5s in the sub sting and counts them, should return 1.\n";
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that player1_game_history() looks for 5s in the sub sting and counts them, should return 1.\n";
 
-	if (player1_game_history("567") == 1) {
-		echo "Success\n";
-	}
-	else {
-		echo "Failure\n";
-	}
+	// if (player1_game_history("567") == 1) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
 
-	echo "------------Testing Starts Here----------------";
-	echo "\n\n";
-	echo "Testing that player1_game_history() looks for 5s in the sub sting and counts them, should return 3.\n";
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that player1_game_history() looks for 5s in the sub sting and counts them, should return 3.\n";
 
-	if (player1_game_history("56557") == 3) {
-		echo "Success\n";
-	}
-	else {
-		echo "Failure\n";
-	}
+	// if (player1_game_history("56557") == 3) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+		// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that player1_game_history() looks for 5s in the sub sting and doesn't find any, should return 0.\n";
+
+	// if (player1_game_history("67767") == 0) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
 	//*********************************************************************************************
 	//Tests for player_moves() function (looks for moves that have been made (1s) in the query string
 	//then adds those moves to an Array)
 	//*********************************************************************************************
 	
-	// 	echo "------------Testing Starts Here----------------";
+	// echo "------------Testing Starts Here----------------";
 	// echo "\n\n";
 	// echo "Testing that player_moves() adds all of the taken spaces to an Array. Should return [1, 1, 1].\n";
 
 	// if (player_moves('1112233338') == array(1, 1, 1)) {
+	// 	echo "Success\n";
+	// 	print_r($player_moves);
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that player_moves() doesn't add anything if there are no moves made. Should return [].\n";
+
+	// if (player_moves('3332233338') == array()) {
 	// 	echo "Success\n";
 	// 	print_r($player_moves);
 	// }
@@ -50,11 +150,23 @@
 	//from the query string and adds them to an array)
 	//*********************************************************************************************
 
-	// 	echo "------------Testing Starts Here----------------";
+	// echo "------------Testing Starts Here----------------";
 	// echo "\n\n";
 	// echo "Testing that available_moves() function adds available spaces to Array. Should return [3,3,3,3,3,3].\n";
 
 	// if (available_moves("2113333338") == array(3, 3, 3, 3, 3, 3)) {
+	// 	echo "Success\n";
+	// 	print_r($available_moves);
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that available_moves() doesn't add any spaces if all spaces are taken. Should return [].\n";
+
+	// if (available_moves("2112212228") == array()) {
 	// 	echo "Success\n";
 	// 	print_r($available_moves);
 	// }

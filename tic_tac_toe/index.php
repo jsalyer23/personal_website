@@ -12,6 +12,7 @@
 	else {
 		$scoreboard = $_GET['scoreboard'];
 	}
+	
 	//Assign the function that determines who's turn it is to a variable
 	$turn = whos_turn($scoreboard);
 	//Assign the function that checks if anyone has won the game to a variable

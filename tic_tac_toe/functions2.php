@@ -42,10 +42,13 @@
 	//$turn = the result of whos_turn() function
 	//$score_keeper = the result of did_they_win() function
 	function message_for_draws($score_keeper, $turn) {
+		//If no one has won the game and the whos_turn() function returns "It's a draw!!!"
 		if ($score_keeper != "Player 1 Wins!!!" && $score_keeper != "Player 2 Wins!!!" && $turn == "It's a draw!!!") {
+			//Display the tied game message
 			return "It's a draw!!!";
 		}
 		else {
+			//Otherwise don't display anything
 			return "";
 		}
 	}
@@ -160,26 +163,38 @@
 
 	//This function checks for empty spaces and adds the empty spaces into an Array
 	function available_moves($scoreboard) {
+		//Create an empty Array to add available moves to
 		$available_moves = array();
+		//If the 10th number in the query string is 8 then the computer opponent option was selected
 		if ($scoreboard[9] == "8") {
+			//For each of the numbers in the query string
 			for ($box = 0; $box < 9; $box++) {
+				//If each one is an empty space (3)
 				if ($scoreboard[$box] == "3") {
+					//Add it to the $available_moves array
 					array_push($available_moves, $scoreboard[$box]);
 				}
 			}
+			//Return the Array of available moves
 			return $available_moves;
 		}
 	}
 
 	//This function checks for which spaces are occupied by the person playing
 	function player_moves($scoreboard) {
+		//Create an empty Array to add taken spaces to
 		$player_moves = array();
+		//If the 10th number in the query string is 8 then the computer opponent option was selected
 		if ($scoreboard[9] == "8") {
+			//For each of the numbers in the query string
 			for ($box = 0; $box < 9; $box++) {
+				//If a number is equal to 1 then that means Player 1 has chosen that space already
 				if ($scoreboard[$box] == "1") {
+					//Add Player 1's moves to the $player_moves Array
 					array_push($player_moves, $scoreboard[$box]);
 				}
 			}
+			//Return the Array of Player 1's moves
 			return $player_moves;
 		}
 	}
