@@ -117,52 +117,31 @@
 		}
 	}
 
-	//This function checks how many wins Player 1 has had and adds them out to be printed to the screen
+	//This function checks how many wins Player 1 has had by counting them from within the $game_history
+	//sub string then returns that number to be printed to the screen
 	function player1_game_history($game_history) {
-		//Start Player 1's wins at 0
-		$player1_total_wins = 0;
-		//Iterate over each number in the query string($scoreboard)
-		for ($games = 0; $games <= strlen($game_history); $games++) {
-			//If any of the numbers are equal to 5 (which represents a win for Player 1)
-			if ($game_history[$games] == "5") {
-				//Add one to Player 1's total wins
-				$player1_total_wins += 1;
-				//Display the total number of wins for Player 1
-				return $player1_total_wins;
-			}
-		}
+		//substr_count() counts how many times a specified sub string appears in another string
+		$player1_total_wins = substr_count($game_history, "5");
+		//Display the number of Player 1 wins (5s) on the screen
+		return $player1_total_wins;
 	}
 
-	//This function checks how many wins Player 2 has had and adds them out to be printed to the screen
-	function player2_game_history($total_game_history) {
-		//Start Player 2's wins at 0
-		$player2_total_wins = 0;
-		//Iterate over each number in the query string($scoreboard)
-		for ($games = 0; $games <= strlen($total_game_history); $games++) {
-			//If any of the numbers are equal to 6 (which represents a win for Player 2)
-			if ($total_game_history[$games] == "6") {
-				//Add one to Player 2's total wins
-				$player2_total_wins += 1;
-				//Display the total number of wins for Player 2
-				return $player2_total_wins;
-			}
-		}
+	//This function checks how many wins Player 2 has had by counting them from within the $game_history
+	//sub string then returns that number to be printed to the screen
+	function player2_game_history($game_history) {
+		//substr_count() counts how many times a specified sub string appears in another string
+		$player2_total_wins = substr_count($game_history, "6");
+		//Display the number of Player 2 wins (6s) on the screen
+		return $player2_total_wins;
 	}
 
-	//This function checks how many draws are present in the game history and adds them up to be displayed on the screen
+	//This function checks how many tied games there have been by counting them from within the $game_history
+	//sub string then returns that number to be printed to the screen
 	function tied_game_history($game_history) {
-		//Start total draw count to 0
-		$total_draws = 0;
-		//Iterate over each number in the query string ($scoreboard)
-		for ($games = 0; $games <= strlen($game_history); $games++) {
-			//If any of the numbers are equal to 7 (which represents a draw)
-			if ($game_history[$games] == "7") {
-				//Add one to the total number of draws
-				$total_draws += 1;
-				//Displayer the total number of draws
-				return $total_draws;
-			}
-		}
+		//substr_count() counts how many times a specified sub string appears in another string
+		$draw_total = substr_count($game_history, "7");
+		//Display the number of tied games (7s) on the screen 
+		return $draw_total;
 	}
 
 	//This function prints out the option to play against a computer or another person
