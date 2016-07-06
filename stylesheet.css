@@ -2,12 +2,6 @@ html {
 	background-color: #1a242d;
 }
 
-li a {
-	display: -webkit-flex;
-	text-decoration: none;
-	color: white;
-	justify-content: center;
-}
 
 ul a:hover {
 	background-color: #3f7098;
@@ -22,6 +16,7 @@ ul a:hover {
 body {
 	padding: 0;
 	margin: 0;
+	height: 100%;
 }
 
 .flex-container{
@@ -32,12 +27,15 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
+	width: 300px;
+	height: 100%;
 }
 
 .sidebar {
-	flex: 0 0 300px;
+	display: flex;
 	background-color: #415762;
 	list-style-type: none;
+	
 }
 
 .nav-wrapper ul {
@@ -48,6 +46,34 @@ body {
 	flex: 1 1;
 	padding: 20px;
 	background-color: #48b5e0;
+}
+
+.nav {
+	display: flex;
+	flex-direction: column;
+	padding-left: 0px;
+}
+
+
+.navTitles {
+	display: flex;
+
+}
+
+.topLeft {
+	height: 80px;
+}
+
+.topLeft__name {
+
+}
+
+.topLeft__icons {
+
+}
+
+.navTitles__page {
+
 }
 
 .social_icon {
