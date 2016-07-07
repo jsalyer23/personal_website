@@ -1,7 +1,4 @@
 <!DOCTYPE HTML>
-<?php 
-	$thisPage = "Rock Paper Scissors";
-?>
 
 <html>
 	<head>

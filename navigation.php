@@ -6,9 +6,9 @@
 				</div>
 
 				<div class="topLeft__icons">
-			      	<a class="social_icon" href="http://twitter.com/joshsalyer23"><img alt="Twitter Logo" src="img/twitter_256.png" width= "60px" height= "60px"></a>
-			      	<a class="social_icon" href="http://facebook.com/joshsalyer23"><img alt="Facebook Logo" src="img/FB-f-Logo__blue_50.png" width= "60px" height= "60px"></a>
-			      	<a class="social_icon" href="http://github.com/jsalyer23"><img alt="GitHub Logo" src="img/GitHub-Mark-64px.png" width= "60px" height= "60px"></a>
+			      	<a href="http://twitter.com/joshsalyer23"><img class="social_icon" alt="Twitter Logo" src="img/twitter_256.png"></a>
+			      	<a href="http://facebook.com/joshsalyer23"><img class="social_icon" alt="Facebook Logo" src="img/FB-f-Logo__blue_50.png"></a>
+			      	<a href="http://github.com/jsalyer23"><img class="social_icon" alt="GitHub Logo" src="img/GitHub-Mark-64px.png"></a>
 				</div>
 
 			</div>
@@ -46,6 +46,9 @@
 
 				<li class="navTitles__page" <?php if ($thisPage == "Tic Tac Toe Journal") {echo " id=\"current_page\"";} ?>>	
 					<a href="articles5.php">Tic Tac Toe Journal</a>
+
+				<li class="navTitles__page" <?php if ($thisPage == "Personal Dictionary") {echo " id=\"current_page\"";} ?>>	
+					<a href="articles6.php">Personal Dictionary</a>
 	
 			</ul>
 

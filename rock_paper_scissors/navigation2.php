@@ -23,12 +23,6 @@
 					<li <?php if ($thisPage == "My Family") {echo " id=\"current_page\"";} ?>>	
 						<a href="../my_family.php">My Family</a>
 
-					<li <?php if ($thisPage == "Rock Paper Scissors") {echo " id=\"current_page\"";} ?>>	
-						<a href="rock_paper_scissors/welcome_page2.php">Rock Paper Scissors</a>
-
-					<li <?php if ($thisPage == "Tic Tac Toe") {echo " id=\"current_page\"";} ?>>	
-						<a href="../index.php?scoreboard=3333333330000">Tic Tac Toe</a>
-
 				</li>
 			</ul>
 
@@ -46,6 +40,20 @@
 
 					<li <?php if ($thisPage == "What Makes Up An HTML Document?") {echo " id=\"current_page\"";} ?>>	
 						<a href="../articles4.php">What Makes Up An HTML Document?</a>
+
+					<li class="navTitles__page" <?php if ($thisPage == "Tic Tac Toe Journal") {echo " id=\"current_page\"";} ?>>	
+						<a href="../articles5.php">Tic Tac Toe Journal</a>
+
+					<li class="navTitles__page" <?php if ($thisPage == "Personal Dictionary") {echo " id=\"current_page\"";} ?>>	
+						<a href="../articles6.php">Personal Dictionary</a>
+
+
+
+					<li class="navTitles__page" <?php if ($thisPage == "Rock Paper Scissors") {echo " id=\"current_page\"";} ?>>	
+						<a href="rock_paper_scissors/welcome_page2.php">Rock Paper Scissors</a>
+
+					<li class="navTitles__page" <?php if ($thisPage == "Tic Tac Toe") {echo " id=\"current_page\"";} ?>>	
+						<a href="../tic_tac_toe/index.php?scoreboard=3333333330">Tic Tac Toe</a>
 				</li>
 			</ul>
 			
