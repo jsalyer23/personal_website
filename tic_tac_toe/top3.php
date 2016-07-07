@@ -10,7 +10,7 @@
 		<!-- <?php if ($theme == "default"){ ?><?php } else { ?>
     		
 		<?php } ?> -->
-		<title>Josh Salyer's Website</title>
+		<title>Tic Tac Toe</title>
 	</head>
 
 	<body>

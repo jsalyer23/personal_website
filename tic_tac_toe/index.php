@@ -12,55 +12,22 @@
 	else {
 		$scoreboard = $_GET['scoreboard'];
 	}
-
-	//Assign the function that determines who's turn it is to a variable
-	$turn = whos_turn($scoreboard);
-	//Assign the function that checks if anyone has won the game to a variable
-	$score_keeper = did_they_win($scoreboard, $turn);
-	//Add the functions that return 1 for each win each player has to variables
-	$add_win_player1 = add_to_win_player1($score_keeper);
-	$add_win_player2 = add_to_win_player2($score_keeper, $scoreboard);
-	$add_win_computer = add_to_win_computer($score_keeper, $scoreboard);
-	//Display a message saying that the computer won the game
-	$computer_win_message = message_for_computer_win($score_keeper, $scoreboard);
-	//Display a message saying that there was a tie
-	$draw_message = message_for_draws($score_keeper, $turn);
-	//Add the funtions that return 1 for each tied game
-	$add_draw = add_to_draws($turn, $draw_message);
-	//game_results returns an Array to track games to be added to the end of the query string
-	$game_results = game_results($add_draw, $add_win_player1, $add_win_player2);
-	//Join $game_results Array to be added to the end of the query string
-	$joined_game_results = implode('', $game_results);
-	//Creates a substring of numbers starting at $scoreboard[9] to add to the end of the query string
-	$game_history = game_history($scoreboard);
-	//Shows a link to play against a computer or another person depending on how the game is currently set up
-	$computer_or_person = computer_or_person($scoreboard);
-	//These return the number of wins each player has
-	$p1_game_history = player1_game_history($scoreboard);
-	$p2_game_history = player2_game_history($scoreboard);
-	$computer_game_history = computer_game_history($game_history);
-	//This returns the number of draws
-	$tied_history = tied_game_history($scoreboard);
-	//This returns an Array of empty spaces for the computer player to chose from
-	$available_moves = available_moves($scoreboard);
-	//This returns an Array of Player 1's moves so the computer knows where Player 1 has went
-	$player_moves = player_moves($scoreboard);
-	//Computer player logic
-	$computer_player = computer_player($scoreboard, $turn);
-	//Returns an 8 or a 0 depending on which type of opponent has been chosen
-	$play_computer_again = play_computer_again($scoreboard);
-
-	print_r($scoreboard);
-	// print_r($game_history);
-	//Display a message saying who won if there is a winner
-	echo $score_keeper;
-	echo $draw_message;
-	echo $computer_win_message;
+	//Define the variable for the game
+	include("define_variables.php");
 	
 ?>
 
-	<div class="gameContainer">
-		
+<div class="gameContainer">
+	<div class="gameContainer__winDisplay">
+	<?php 	
+		//Display a message saying who won if there is a winner
+		echo $score_keeper;
+		echo $draw_message;
+		echo $computer_win_message;
+		save_game($translated_scoreboard, $game_is_over);
+	?>
+	</div>
+	<div class= "gameContainer__board">
 		<div class="gameContainer__row">
 			<div class="gameContainer__box" name="0">
 				 <?php fill_boxes($scoreboard, 0, $turn); ?>
@@ -103,17 +70,22 @@
 			</div>
 		</div>
 		<br>
+	</div>
 
+	<div class="gameContainer__scores">
 		<div class="scoreBoard">
 			<!--Might make these individual divs?-->
-			<h2>Player 1 Wins: <?php echo $p1_game_history; ?></h2>
-			<h2>Player 2 Wins: <?php echo $p2_game_history; ?></h2>
-			<h2>Computer Wins: <?php echo $computer_game_history; ?></h2>
-			<h2>Draws: <?php echo $tied_history; ?></h2>
-			<h2><a href=index.php?scoreboard=3333333330>Reset Game</a></h2>
-			<?php echo '<a href=index.php?scoreboard=333333333' . $play_computer_again . $joined_game_results . $game_history . '>Play Again</a>'; ?>
+			<h2 class="scoreBoard__scores">Player 1 Wins: <?php echo $p1_game_history; ?></h2>
+			<h2 class="scoreBoard__scores">Player 2 Wins: <?php echo $p2_game_history; ?></h2>
+			<h2 class="scoreBoard__scores">Computer Wins: <?php echo $computer_game_history; ?></h2>
+			<h2 class="scoreBoard__scores">Draws: <?php echo $tied_history; ?></h2>
+			<div class="scoreBoard__linkBox">
+			<a class="scoreBoard__links" href=index.php?scoreboard=3333333330>Reset Game</a>
+			<?php echo '<a class="scoreBoard__links" href=index.php?scoreboard=333333333' . $play_computer_again . $joined_game_results . $game_history . '>Play Again</a>'; ?>
 			<?php echo $computer_or_person; ?>
+			</div>
 		</div>
 	</div>
+</div>
 
 <?php include("../bottom.php"); ?>

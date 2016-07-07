@@ -1,14 +1,12 @@
 <?php
 	session_start();
 	
-	
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//DETERMINING THE WINNER FUNCTIONS
+	///////////////////////////////////////////////////////////////////////////////////////////	
 
-	
-
-	
 	//This function checks to see if anyone has won the game (returns a String)
 	function did_they_win($scoreboard, $turn) {
-
 		//Create an empty Array with 8 spots to add winning combination Strings from the $scoreboard
 		$winning_combinations = array('', '', '', '', '', '', '', '');
 			//Assign one winning combination to each of the spots in the Array
@@ -26,6 +24,7 @@
 				if ($value == "111") {
 					//Display the winner
 					return "Player 1 Wins!!!";
+					// return 1;
 				}
 				//If one of the combinations has three ones in it then O's have won
 				else if ($value == "222") {
@@ -36,6 +35,22 @@
 			}
 		
 	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//WIN/DRAW MESSAGE FUNCTIONS
+	///////////////////////////////////////////////////////////////////////////////////////////
+
+	// function message_for_player1_win($score_keeper) {
+	// 	if ($score_keeper == 1) {
+	// 		return "Player 1 Wins!!!";
+	// 	}
+	// }
+
+	// function message_for_player2_win($score_keeper, $scoreboard) {
+	// 	if ($score_keeper == 2 && $scoreboard[9] != "8") {
+	// 		return "Player 2 Wins!!!";
+	// 	}
+	// }
 
 	//This function displays a message to the screen if the computer has won the games (returns a String)
 	//$scoreboard = the query String
@@ -65,6 +80,10 @@
 			return "";
 		}
 	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//KEEPING TRACK OF WHO WINS INDIVIDUAL GAMES FUNCTIONS
+	///////////////////////////////////////////////////////////////////////////////////////////
 
 	//This function adds 1 to player 1's win count if they have won (returns an Integer)
 	//$score_keeper = the String returned from did_they_win() function
@@ -128,6 +147,10 @@
 			return $draw_count;
 		}
 	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//KEEPING TRACK OF GAME RESULTS FOR MULTIPLE GAMES FUNCTIONS
+	///////////////////////////////////////////////////////////////////////////////////////////
 
 	//This function puts the results of the game into an Array that will be added to the end of the query String
 	//(returns an Array)
@@ -207,17 +230,93 @@
 		return $computer_total_wins;
 	}
 
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//SAVING GAMES FUNCTIONS
+	///////////////////////////////////////////////////////////////////////////////////////////
+
+	//This function checks to see if the game has ended (returns a String)
+	//$score_keeper = String returned from did_they_win()
+	//$turn = String returned from whos_turn()
+	function check_if_game_is_over($score_keeper, $turn) {
+		//If any of the Strings are returned from the functions
+		if ($score_keeper == "Player 1 Wins!!!" || $score_keeper == "Player 2 Wins!!!" || $turn == "It's a draw!!!") {
+			//Return the String "yes"
+			return "yes";
+		}
+	}
+
+	//This function iterates through the Query Sting after the game has ended and translates
+	//the moves/blanks in the String to represent X, O, or -. (returns String)
+	//$scoreboard = the Query String
+	//$game_is_over = the String returned from check_if_game_is_over()
+	function translate_scoreboard($scoreboard, $game_is_over) {
+		//Create an empty Array to add translated String values to
+		$translation = array();
+		//If the game is over
+		if ($game_is_over == "yes") {
+			//For each character 0-10 of the Query String
+			for ($number = 0; $number < 10; $number++) {
+				//If the character is a 1
+				if ($scoreboard[$number] == "1") {
+					//Add a X to the empty Array ("1" = "X")
+					array_push($translation, "X");
+				}
+				//If the character is a 2
+				else if ($scoreboard[$number] == "2") {
+					//Add an O to the empty Array ("2" = "O")
+					array_push($translation, "O");
+				}
+				//If the character is a 3
+				else if ($scoreboard[$number] == "3") {
+					//Add a - to the empty Array ("3" = blank space)
+					array_push($translation, "-");
+				}
+				//The last character should be either an 8 (computer) or a 0 (person)
+				else {
+					//Add that number to the Array
+					array_push($translation, $scoreboard[$number]);
+				}
+				
+			}
+			//Return the Array as a String
+			return implode($translation);
+		}
+	}
+
+	//This function saves the results of each game in a file (adds game data to file)
+	//$translated_scoreboard = the String returned from translate_scoreboard()
+	//$game_is_over = the String returned from check_if_game_is_over()
+	function save_game($translated_scoreboard, $game_is_over) {
+		//If the game has ended
+		if ($game_is_over == "yes") {
+			//Assign/open file to store the game data in or show an error message
+			$saved_game_file = fopen("ttt_games.txt", "a") or die ("Unable to open file!");
+			//Assign the translated scoreboard to a variable making sure it only has 10
+			//characters in it plus a new line
+			$board = substr($translated_scoreboard, 0, 10) . "\n";
+			//Write the game data into the specified file
+			fwrite($saved_game_file, $board);
+			//Close the file once game is saved
+			fclose($saved_game_file);
+		}
+
+	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//WHO'S TURN IT IS/GAME SETTINGS FUNCTIONS
+	///////////////////////////////////////////////////////////////////////////////////////////
+
 	//This function prints out the option to play against a computer or another person (returns HTML link)
 	//$scoreboard = the query String
 	function computer_or_person($scoreboard) {
 		//If the 10th number in the query String is equal to 0 then the game is set for two players
 		if ($scoreboard[9] == 0) {
 			//Print out the option to play against a computer instead
-			return '<a href=index.php?scoreboard=3333333338>VS Computer</a><br>';
+			return '<a class="scoreBoard__links" href=index.php?scoreboard=3333333338' . $play_computer_again . $joined_game_results . $game_history . '>VS Computer</a><br>';
 		}
 		else {
 			//If the game is set up to play against the computer print a link to play another person
-			return '<a href=index.php?scoreboard=3333333330>VS Person</a><br>';
+			return '<a class="scoreBoard__links" href=index.php?scoreboard=3333333330' . $play_computer_again . $joined_game_results . $game_history . '>VS Person</a><br>';
 		}
 	}
 
@@ -235,6 +334,48 @@
 			return "0";
 		}
 	}
+
+	//This function will count how many Xs and Os have been placed on the board then returns a 1 if it's Xs turn
+	//and 2 if it's Os turn. If the sum of both players' turn counts is equal to 9, then it returns "It's a draw"
+	//(returns an Integer or a String if all the moves have been used)
+	//$scoreboard = the query String
+	function whos_turn($scoreboard) {
+		//Set both player's turn counts to 0
+		$player1_turn = 0;
+		$player2_turn = 0;
+
+		//Iterate over each number (character) in the query String ($scoreboard)
+		for ($number = 0; $number < strlen($scoreboard); $number++) {
+			//If one of the numbers in the query String is a "1"
+			if ($scoreboard[$number] == "1") {
+				//add 1 to player 1 (X)'s turn count
+				$player1_turn += 1;
+			} 
+			//If one of the numbers in the query String is a "2"
+			else if ($scoreboard[$number] == "2") {
+				//add 1 to player 2 (O)'s turn count
+				$player2_turn += 1;
+			}
+		}
+		//If the number of available boxes is 0 then it's a tie
+		if (($player1_turn + $player2_turn) == 9) {
+			//Display the results
+			return "It's a draw!!!";
+		}
+		//If player 1's turn count is greater than player 2's
+		if ($player1_turn > $player2_turn) {
+			//then it's player 2's turn
+			return 2;
+		}
+		else {
+			//if not then it's player 1's turn
+			return 1;	
+		}
+	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//COMPUTER PLAYER FUNCTIONS
+	///////////////////////////////////////////////////////////////////////////////////////////
 
 	//This function checks for empty spaces and adds the empty spaces into an Array (returns Array)
 	//$scoreboard = the query String
@@ -291,6 +432,10 @@
 		}
 	}
 
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//WHAT'S SHOWN ON THE BOARD FUNCTIONS
+	///////////////////////////////////////////////////////////////////////////////////////////
+
 	//Add a "X" or an "O" or a "@" in each box based on the query String (returns a String or a HTML link)
 	//$scoreboard = the query String
 	//$box_number = the number assigned to each box
@@ -313,42 +458,6 @@
 		
 	}
 
-	//This function will count how many Xs and Os have been placed on the board then returns a 1 if it's Xs turn
-	//and 2 if it's Os turn. If the sum of both players' turn counts is equal to 9, then it returns "It's a draw"
-	//(returns an Integer or a String if all the moves have been used)
-	//$scoreboard = the query String
-	function whos_turn($scoreboard) {
-		//Set both player's turn counts to 0
-		$player1_turn = 0;
-		$player2_turn = 0;
 
-		//Iterate over each number (character) in the query String ($scoreboard)
-		for ($number = 0; $number < strlen($scoreboard); $number++) {
-			//If one of the numbers in the query String is a "1"
-			if ($scoreboard[$number] == "1") {
-				//add 1 to player 1 (X)'s turn count
-				$player1_turn += 1;
-			} 
-			//If one of the numbers in the query String is a "2"
-			else if ($scoreboard[$number] == "2") {
-				//add 1 to player 2 (O)'s turn count
-				$player2_turn += 1;
-			}
-		}
-		//If the number of available boxes is 0 then it's a tie
-		if (($player1_turn + $player2_turn) == 9) {
-			//Display the results
-			return "It's a draw!!!";
-		}
-		//If player 1's turn count is greater than player 2's
-		if ($player1_turn > $player2_turn) {
-			//then it's player 2's turn
-			return 2;
-		}
-		else {
-			//if not then it's player 1's turn
-			return 1;	
-		}
-	}
 	
 ?>
