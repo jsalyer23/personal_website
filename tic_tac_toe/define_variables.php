@@ -40,4 +40,8 @@
 	//Translates the Query String after the game has ended to X, O, or -
 	$translated_scoreboard = translate_scoreboard($scoreboard, $game_is_over);
 
+	$save_game = save_game($translated_scoreboard, $game_is_over);
+
+	$saved_game_link = saved_game_link($game_is_over, $scoreboard);
+
 ?>
