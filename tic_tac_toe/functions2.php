@@ -462,26 +462,42 @@
 		}
 	}
 
+	//This function checks if the corners of the board have been taken and takes them if they
+	//haven't been taken (returns Query String)
+	//$scoreboard = the Query String
+	//$turn = the Integer returned from whos_turn()
 	function check_corners($scoreboard, $turn) {
 		//If  Player 1 is playing against the computer (8), it's the computer's turn, and the center
-		//space has not been taken (3 = empty space)
 		if ($scoreboard[9] == "8" && $turn == 2) {
+			//If the top left corner hasn't been taken already
 			if ($scoreboard[0] != "1" && $scoreboard[0] != "2") {
+				//Take the top left corner
 				$scoreboard[0] = "2";
+				//Return the new Query String
 				return $scoreboard;
 			}
+			//If the bottom left corner hasn't been taken already
 			else if ($scoreboard[2] != "1" && $scoreboard[2] != "2") {
+				//Take the bottom left corner
 				$scoreboard[2] = "2";
+				//Return the new Query String
 				return $scoreboard;
 			}
+			//If the top right corner hasn't been taken already
 			else if ($scoreboard[6] != "1" && $scoreboard[6] != "2") {
+				//Take the top right corner
 				$scoreboard[6] = "2";
+				//Return the new Query String
 				return $scoreboard;
 			}
+			//If the bottom right corner hasn't been taken already
 			else if ($scoreboard[8] != "1" && $scoreboard[8] != "2") {
+				//Take the bottom right corner
 				$scoreboard[8] = "2";
+				//Return the new Query String
 				return $scoreboard;
 			}
+			//If the corners are all taken then don't return anything
 			else {
 				return '';
 			}
