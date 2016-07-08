@@ -44,14 +44,23 @@
 	//WIN/DRAW MESSAGE FUNCTIONS
 	///////////////////////////////////////////////////////////////////////////////////////////
 
+	//This function displays a message to the screen if Player 1 has won the game (returns a String)
+	//$score_keeper = the Integer returned from did_they_win()
 	function message_for_player1_win($score_keeper) {
+		//If Player 1 has won the game
 		if ($score_keeper == 1) {
+			//Display a message saying Player 1 won
 			return "Player 1 Wins!!!";
 		}
 	}
 
+	//This function displays a message to the screen if Player 2 has won the game (returns a String)
+	//$score_keeper = the Integer returned from did_they_win()
+	//$scoreboard = the Query String
 	function message_for_player2_win($score_keeper, $scoreboard) {
+		//If Player 2 has won and the computer player has not been selected
 		if ($score_keeper == 2 && $scoreboard[9] != "8") {
+			//Display a message saying Player 2 has won the game
 			return "Player 2 Wins!!!";
 		}
 	}
@@ -311,14 +320,21 @@
 	///////////////////////////////////////////////////////////////////////////////////////////
 
 	//DOESN'T WORK YET
-	function saved_game_link($game_is_over, $scoreboard) {
-		$saved_games = file("ttt_games.txt");
-		if ($game_is_over == "yes") {
-			for ($game = 0; $game < count($saved_games); $game++) {
-				echo '<a href=index.php?game=' . $scoreboard . '>View Game ' . $game . '</a><br>';
-			}
+	function saved_game_link() {
+		$saved_games = file("untranslated_ttt_games.txt");
+		foreach($saved_games as $games => $queryString) {
+			echo '<a class="scoreBoard__links" href=http://localhost:8888/personal_website/tic_tac_toe/index.php?scoreboard=' . $queryString . '>Load Game: ' . $game . '</a>';
 		}
 
+	}
+
+	function save_untranslated_scoreboard($scoreboard, $game_is_over) {
+		if ($game_is_over == "yes") {
+			$non_translated_games = fopen("untranslated_ttt_games.txt", "a") or die ("Unable to open file!");
+			$raw_board = substr($scoreboard, 0, 10) . "\n";
+			fwrite($non_translated_games, $raw_board);
+			fclose($non_translated_games);
+		}
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -440,9 +456,9 @@
 		}
 	}
 
-	// function block_player($player_moves, $score_keeper, $scoreboard) {
+	function block_player($player_moves, $score_keeper, $scoreboard) {
 
-	// }
+	}
 
 	//This function checks if Player 1 has taken the center space and takes it if it's available.
 	//Computer always goes 2nd (returns query String)

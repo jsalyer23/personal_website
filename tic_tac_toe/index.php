@@ -20,14 +20,13 @@
 <div class="gameContainer">
 	<div class="gameContainer__winDisplay">
 	<?php 	
-		$computer_player;
-		make_computer_move($scoreboard, $computer_player, $turn);
 		//Display a message saying who won if there is a winner
 		echo $player1_win_message;
 		echo $player2_win_message;
 		echo $draw_message;
 		echo $computer_win_message;
 		echo $save_game;
+		echo save_untranslated_scoreboard($scoreboard, $game_is_over);
 	?>
 	</div>
 	<div class= "gameContainer__board">
@@ -86,7 +85,8 @@
 			<a class="scoreBoard__links" href=index.php?scoreboard=3333333330>Reset Game</a>
 			<?php echo '<a class="scoreBoard__links" href=index.php?scoreboard=333333333' . $play_computer_again . $joined_game_results . $game_history . '>Play Again</a>'; ?>
 			<?php echo $computer_or_person; ?>
-			<a class="scoreBoard__links" href=http://localhost:8888/personal_website/tic_tac_toe/index.php?scoreboard=32312123385>Testing</a>
+
+			<?php echo saved_game_link(); ?>
 
 			</div>
 		</div>
