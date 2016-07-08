@@ -4,7 +4,7 @@
 ?>
 
 	
-				<h2>Tic Tac Toe Journal</h2>
+				<h2 class="articleTitles">Tic Tac Toe Journal</h2>
 				
 				<p>When I started working on my tic tac toe project I thought that by changing the image that was displayed in each space on the board was a great idea. About half way through writing the code that I was making things more complex then they needed to be. I was using HTML to resize my images as they loaded which ended up creating a slight lag when a move was made. Plus I was spending way too much time trying to find just the right image to make it look like it wasn't an image. So I decided to start over and focus more on usin a query string.</p>
 

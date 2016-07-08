@@ -3,7 +3,7 @@
 	$thisPage = "SQRL";
 	include("top.php");
 ?>
-				<h2>SQRL</h2>
+				<h2 class="articleTitles">SQRL</h2>
 				
 				<p>	Secure Quick Reliable Login (SQRL) allows users to login to websites without using their personal information or typing in a username and password. By simply using your smartphone to scan a QR code on a website, you can authorize your account to be logged into on sites that enable SQRL. SQRL provides a quick and secure way to get access to your accounts while eliminating the need for you to give up personal information. I will cover some of the security benefits to using SQRL and how to use it to login.</p>
 

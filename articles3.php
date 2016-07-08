@@ -3,7 +3,7 @@
 	include("top.php");
 ?>
 
-				<h2>File Paths</h2>
+				<h2 class="articleTitles">File Paths</h2>
 				
 				<p>File paths are used to create a link to a different file. Whether you are creating a link that takes the user to a completely different website or linking one page to another in your own website, you must use the correct file path to load your destination file. The browser reads the file path you give it and uses it like directions to then retrieve the correct file.</p>
 

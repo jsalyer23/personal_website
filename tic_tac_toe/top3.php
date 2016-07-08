@@ -13,11 +13,11 @@
 		<title>Tic Tac Toe</title>
 	</head>
 
-	<body>
-		<div class="flex-container">
+	<body class="flex-container">
+		<div class="main">
 
 			<div class="sidebar">
 				<?php include("navigation3.php"); ?>
 			</div>
 
-			<div class="main">
+			<div>

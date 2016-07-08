@@ -8,6 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="stylesheet2.css">
 		
     		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+    		<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Work+Sans" rel="stylesheet">
+   
 		<!-- <?php if ($theme == "default"){ ?><?php } else { ?>
     		
 		<?php } ?> -->

@@ -3,7 +3,7 @@
 	include("top.php"); 
 ?>
 
-				<h2>What Makes Up An HTML Document?</h2>
+				<h2 class="articleTitles">What Makes Up An HTML Document?</h2>
 				
 				<p>There are many possible parts to a HTML document but every website has the same basic structure. The basic HTML document is made up of html, head, body, and footer tags. Many more tags can be added within these but we'll focus on the basic ones.</p>
 

@@ -2,7 +2,7 @@ html {
 	min-height: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: #1a242d;
+	background-color: ;
 }
 
 
@@ -37,19 +37,22 @@ body {
 
 .sidebar {
 	display: flex;
-	background-color: #415762;
+	background-color: #933d30;
 	list-style-type: none;
 	
 }
 
 .nav-wrapper ul {
 	list-style-type: none;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .main {
 	flex: 1 1;
 	padding: 20px;
-	background-color: #48b5e0;
+	background-color: #d5774c;
+	font-family: 'Open Sans', sans-serif;
+	
 }
 
 .nav {
@@ -57,7 +60,6 @@ body {
 	flex-direction: column;
 	padding-left: 0px;
 }
-
 
 .navTitles {
 	padding-left: 25%;
@@ -105,4 +107,9 @@ body {
 	width: 325px;
 	height: 335px;
 	padding-top: 30px;
+}
+
+.articleTitles {
+	text-align: center;
+	font-family: 'Work Sans', sans-serif;
 }

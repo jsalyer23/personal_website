@@ -3,7 +3,7 @@
 	include("top.php"); 
 ?>
 
-				<h2>The World Wide Web</h2>
+				<h2 class="articleTitles">The World Wide Web</h2>
 				
 				<p>The World Wide Web allows millions of people around the world to connect. Some people use it to be creative while others use it to connect with others socially. You can even use the web to get a degree with online classes. With this vast collection of knowledge, potentially everyone in the world can benifit from the internet.</p>
 

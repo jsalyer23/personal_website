@@ -3,7 +3,7 @@
 	include("top.php");
 ?>
 
-				<h2>Personal Dictionary</h2>
+				<h2 class="articleTitles">Personal Dictionary</h2>
 				
 				<p><strong>Request</strong> - When a client asks the server for a web page. The request is handled by the server which returns the data that was requested. e.g. When you try to visit a website your device is the client sending the request to the server for the files that make up the website you've asked for.</p>
 

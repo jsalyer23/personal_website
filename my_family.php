@@ -5,7 +5,7 @@
 
 				<h1>Joshua Salyer</h1>
 
-				<h3>My Family</h3>
+				<h3 class="articleTitles">My Family</h3>
 			<div class="family">
 					<img class="family__pictures" src="img/dad_and_ronan.jpg" alt="Ronan and Me">Ronan and Me</img>
 
