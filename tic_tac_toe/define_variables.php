@@ -7,6 +7,8 @@
 	$add_win_player1 = add_to_win_player1($score_keeper);
 	$add_win_player2 = add_to_win_player2($score_keeper, $scoreboard);
 	$add_win_computer = add_to_win_computer($score_keeper, $scoreboard);
+	$player1_win_message = message_for_player1_win($score_keeper);
+	$player2_win_message = message_for_player2_win($score_keeper, $scoreboard);
 	//Display a message saying that the computer won the game
 	$computer_win_message = message_for_computer_win($score_keeper, $scoreboard);
 	//Display a message saying that there was a tie
@@ -42,6 +44,5 @@
 
 	$save_game = save_game($translated_scoreboard, $game_is_over);
 
-	$saved_game_link = saved_game_link($game_is_over, $scoreboard);
 
 ?>

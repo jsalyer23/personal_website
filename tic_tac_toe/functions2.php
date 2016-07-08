@@ -23,14 +23,14 @@
 				//If one of the combinations has three twos in it then X's have won
 				if ($value == "111") {
 					//Display the winner
-					return "Player 1 Wins!!!";
+					return 1;
 					// return 1;
 				}
 				//If one of the combinations has three ones in it then O's have won
 				else if ($value == "222") {
 
 					// Display the winner
-					return "Player 2 Wins!!!";
+					return 2;
 				}
 			}
 		
@@ -40,17 +40,17 @@
 	//WIN/DRAW MESSAGE FUNCTIONS
 	///////////////////////////////////////////////////////////////////////////////////////////
 
-	// function message_for_player1_win($score_keeper) {
-	// 	if ($score_keeper == 1) {
-	// 		return "Player 1 Wins!!!";
-	// 	}
-	// }
+	function message_for_player1_win($score_keeper) {
+		if ($score_keeper == 1) {
+			return "Player 1 Wins!!!";
+		}
+	}
 
-	// function message_for_player2_win($score_keeper, $scoreboard) {
-	// 	if ($score_keeper == 2 && $scoreboard[9] != "8") {
-	// 		return "Player 2 Wins!!!";
-	// 	}
-	// }
+	function message_for_player2_win($score_keeper, $scoreboard) {
+		if ($score_keeper == 2 && $scoreboard[9] != "8") {
+			return "Player 2 Wins!!!";
+		}
+	}
 
 	//This function displays a message to the screen if the computer has won the games (returns a String)
 	//$scoreboard = the query String
@@ -59,7 +59,7 @@
 		//If the 10th number in the query String is 8 the computer player has been selected
 		if ($scoreboard[9] == "8") {
 			//If the String returned from $score_keeper says Player 2 won
-			if ($score_keeper == "Player 2 Wins!!!") {
+			if ($score_keeper == 2) {
 				//Display a String saying that the computer won
 				return "The Computer Won!!!";
 			}
@@ -71,7 +71,7 @@
 	//$score_keeper = the String returned from did_they_win() function
 	function message_for_draws($score_keeper, $turn) {
 		//If no one has won the game and the whos_turn() function returns "It's a draw!!!"
-		if ($score_keeper != "Player 1 Wins!!!" && $score_keeper != "Player 2 Wins!!!" && $turn == "It's a draw!!!") {
+		if ($score_keeper != 1 && $score_keeper != 2 && $turn == "It's a draw!!!") {
 			//Display the tied game message as a String
 			return "It's a draw!!!";
 		}
@@ -91,7 +91,7 @@
 		//Create variable to keep track of the wins
 		$player1_wins = 0;
 		//If $score_keeper is equal to the string "Player 1 Wins!!!"
-		if ($score_keeper == "Player 1 Wins!!!") {
+		if ($score_keeper == 1) {
 			//Add 1 to Player 1's wins
 			$player1_wins += 1;
 			//Return the number of wins for Player 1
@@ -107,7 +107,7 @@
 		$player2_wins = 0;
 		//If Player 2 is a person and $score_keeper is equal to the String "Player 2 Wins!!!"
 		//and the game is not set up to play against the computer
-		if ($scoreboard[9] == "0" && $score_keeper == "Player 2 Wins!!!") {		
+		if ($scoreboard[9] == "0" && $score_keeper == 2) {		
 			//Add 1 to Player 2's wins
 			$player2_wins += 1;
 			//Return the number of wins for Player 2
@@ -124,7 +124,7 @@
 		$computer_wins = 0;
 		//If the game is set up to play against the computer player and $score_keeper returns
 		//the String "Player 2 Wins!!!"
-		if ($scoreboard[9] == "8" && $score_keeper == "Player 2 Wins!!!") {
+		if ($scoreboard[9] == "8" && $score_keeper == 2) {
 			//Add 1 to the computer player's wins
 			$computer_wins += 1;
 			//Return the number of wins for the computer player
@@ -239,7 +239,7 @@
 	//$turn = String returned from whos_turn()
 	function check_if_game_is_over($score_keeper, $turn) {
 		//If any of the Strings are returned from the functions
-		if ($score_keeper == "Player 1 Wins!!!" || $score_keeper == "Player 2 Wins!!!" || $turn == "It's a draw!!!") {
+		if ($score_keeper == 1 || $score_keeper == 2 || $turn == "It's a draw!!!") {
 			//Return the String "yes"
 			return "yes";
 		}
@@ -444,6 +444,13 @@
 			$scoreboard[4] = "2";
 			//Return the new query String
 			return $scoreboard;
+		}
+	}
+
+	function make_computer_move($scoreboard, $computer_player, $turn) {
+		if ($scoreboard[9] == "8") {
+			$computer_player = $turn;
+			return $computer_player;
 		}
 	}
 
