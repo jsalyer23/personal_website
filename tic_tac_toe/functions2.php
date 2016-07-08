@@ -322,10 +322,9 @@
 	//DOESN'T WORK YET
 	function saved_game_link() {
 		$saved_games = file("untranslated_ttt_games.txt");
-		foreach($saved_games as $games => $queryString) {
-			echo '<a class="scoreBoard__links" href=http://localhost:8888/personal_website/tic_tac_toe/index.php?scoreboard=' . $queryString . '>Load Game: ' . $game . '</a>';
+		foreach($saved_games as $game_number => $queryString) {
+			echo '<a class="scoreBoard__links saved_games" href=http://localhost:8888/personal_website/tic_tac_toe/index.php?scoreboard=' . $queryString . '>Load Game: ' . ($game_number + 1) . '</a>';
 		}
-
 	}
 
 	function save_untranslated_scoreboard($scoreboard, $game_is_over) {
@@ -374,7 +373,7 @@
 	//and 2 if it's Os turn. If the sum of both players' turn counts is equal to 9, then it returns "It's a draw"
 	//(returns an Integer or a String if all the moves have been used)
 	//$scoreboard = the query String
-	function whos_turn($scoreboard) {
+	function whos_turn($scoreboard, $computer_player) {
 		//Set both player's turn counts to 0
 		$player1_turn = 0;
 		$player2_turn = 0;
@@ -468,10 +467,12 @@
 		//If  Player 1 is playing against the computer (8), it's the computer's turn, and the center
 		//space has not been taken (3 = empty space)
 		if ($scoreboard[9] == "8" && $turn == 2 && $scoreboard[4] == "3" && $scoreboard[4] != "1") {
-			//The computer takes the center space
-			$scoreboard[4] = "2";
+				return "O";
+
+			// //The computer takes the center space
+			// $scoreboard[4] = "2";
 			//Return the new query String
-			return $scoreboard;
+			
 		}
 		else {
 			return $scoreboard;
@@ -488,30 +489,30 @@
 			//If the top left corner hasn't been taken already
 			if ($scoreboard[0] != "1" && $scoreboard[0] != "2") {
 				//Take the top left corner
-				$scoreboard[0] = "2";
-				//Return the new Query String
-				return $scoreboard;
+				if($scoreboard[$box_number] = "3") {
+					echo "O";
+				}
 			}
 			//If the bottom left corner hasn't been taken already
 			else if ($scoreboard[2] != "1" && $scoreboard[2] != "2") {
 				//Take the bottom left corner
-				$scoreboard[2] = "2";
-				//Return the new Query String
-				return $scoreboard;
+				if($scoreboard[$box_number] = "3") {
+					echo "O";
+				}
 			}
 			//If the top right corner hasn't been taken already
 			else if ($scoreboard[6] != "1" && $scoreboard[6] != "2") {
 				//Take the top right corner
-				$scoreboard[6] = "2";
-				//Return the new Query String
-				return $scoreboard;
+				if($scoreboard[$box_number] = "3") {
+					echo "O";
+				}
 			}
 			//If the bottom right corner hasn't been taken already
 			else if ($scoreboard[8] != "1" && $scoreboard[8] != "2") {
 				//Take the bottom right corner
-				$scoreboard[8] = "2";
-				//Return the new Query String
-				return $scoreboard;
+				if($scoreboard[$box_number] = "3") {
+					echo "O";
+				}
 			}
 			//If the corners are all taken then don't return anything
 			else {
@@ -528,13 +529,17 @@
 	//$scoreboard = the query String
 	//$box_number = the number assigned to each box
 	//$turn = the Integer returned from whos_turn() function
-	function fill_boxes($scoreboard, $box_number, $turn) {
+	function fill_boxes($scoreboard, $box_number, $turn, $check_center) {
 		//If the position in the query String is equal to "1" then that will display a "X" in the box
 		if ($scoreboard[$box_number] == "1") {
 			echo "X";
 		}
 		//If it's a "2" then it will show an "O"
 		else if ($scoreboard[$box_number] == "2") {
+			echo "O";
+		}
+		else if ($box_number == 4 && $check_center == "O") {
+			$turn = 1;
 			echo "O";
 		}
 		//If the box is blank ("3")

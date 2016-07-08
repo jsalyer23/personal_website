@@ -91,6 +91,7 @@ ul a:hover {
 	display: flex;
 	flex-direction: column;
 	padding-top: 10px;
+	width: 255px;
 }
 
 .scoreBoard__links {
@@ -98,10 +99,16 @@ ul a:hover {
 	color: #f90409;
 	padding-right: 5px;
 	padding-left: 5px;
+	font-size: 14px;
+}
+
+.scoreBoard__links.saved_games {
+	font-size: 12px;
 }
 
 .scoreBoard__linkBox {
 	display: flex;
+	flex-direction: column;
 }
 
 .scoreBoard__scores {
@@ -111,6 +118,7 @@ ul a:hover {
 	background: #415762;
 	color: white;
 	font-size: 15px;
+
 }
 
 .gameContainer__board {

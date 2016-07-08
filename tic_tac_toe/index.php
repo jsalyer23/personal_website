@@ -26,7 +26,7 @@
 		echo $draw_message;
 		echo $computer_win_message;
 		echo $save_game;
-		echo save_untranslated_scoreboard($scoreboard, $game_is_over);
+		echo $save_untranslated_game;
 	?>
 	</div>
 	<div class= "gameContainer__board">
@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="gameContainer__box" name="1">
-				 <?php fill_boxes($scoreboard, 1, $turn); ?>
+				 <?php fill_boxes($scoreboard, 1, $turn);  ?>
 			</div>
 
 			<div class="gameContainer__box" name="2">
@@ -46,15 +46,15 @@
 		<br>
 		<div class="gameContainer__row">
 			<div class="gameContainer__box" name="3">
-				 <?php fill_boxes($scoreboard, 3, $turn); ?>
+				 <?php fill_boxes($scoreboard, 3, $turn);  ?>
 			</div>
 
 			<div class="gameContainer__box" name="4">
-				 <?php fill_boxes($scoreboard, 4, $turn); ?>
+				 <?php fill_boxes($scoreboard, 4, $turn, $check_center);  ?>
 			</div>
 
 			<div class="gameContainer__box" name="5">
-				 <?php fill_boxes($scoreboard, 5, $turn); ?>
+				 <?php fill_boxes($scoreboard, 5, $turn);  ?>
 			</div>
 		</div>
 		<br>
@@ -86,7 +86,7 @@
 			<?php echo '<a class="scoreBoard__links" href=index.php?scoreboard=333333333' . $play_computer_again . $joined_game_results . $game_history . '>Play Again</a>'; ?>
 			<?php echo $computer_or_person; ?>
 
-			<?php echo saved_game_link(); ?>
+			<?php echo saved_game_link() . "<br>"; ?>
 
 			</div>
 		</div>

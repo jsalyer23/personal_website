@@ -34,13 +34,15 @@
 	//This returns an Array of Player 1's moves so the computer knows where Player 1 has went
 	$player_moves = player_moves($scoreboard);
 	//Computer player logic
-	$computer_player = check_center($scoreboard, $turn);
+	$check_center = check_center($scoreboard, $turn);
+	$check_corners = check_corners($scoreboard, $turn, $box_number);
 	//Returns an 8 or a 0 depending on which type of opponent has been chosen
 	$play_computer_again = play_computer_again($scoreboard);
 	//Checks if the game has ended
 	$game_is_over = check_if_game_is_over($score_keeper, $turn);
 	//Translates the Query String after the game has ended to X, O, or -
 	$translated_scoreboard = translate_scoreboard($scoreboard, $game_is_over);
+	$save_untranslated_game = save_untranslated_scoreboard($scoreboard, $game_is_over);
 
 	$save_game = save_game($translated_scoreboard, $game_is_over);
 
