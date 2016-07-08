@@ -98,6 +98,127 @@
 	// 	echo "Failure\n";
 	// }
 
+	// 	*********************************************************************************************
+	//BLANK TESTS
+	// Tests for () function (checks if the center space is taken and takes it if it
+	// isn't)
+	// *********************************************************************************************
+
+	echo "------------Testing Starts Here----------------";
+	echo "\n\n";
+	echo "Testing that () checks if the center space is taken and takes it if it isn't, 
+		should return ''\n";
+
+	if ( == ) {
+		echo "Success\n";
+	}
+	else {
+		echo "Failure\n";
+	}
+
+	echo "------------Testing Starts Here----------------";
+	echo "\n\n";
+	echo "Testing that () checks if the center space is taken and doesn't take it, 
+		should return ''\n";
+
+	if ( == ) {
+		echo "Success\n";
+	}
+	else {
+		echo "Failure\n";
+	}
+
+		// 	*********************************************************************************************
+	// Tests for check_corners() function (checks if the corner spaces are taken and takes it if it
+	// isn't)
+	// *********************************************************************************************
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that check_corners() checks if the corner spaces are taken and takes ONLY ONE if it isn't, 
+	// 	should return '2332311338'\n";
+
+	// if (check_corners("3332311338", 2) == "2332311338") {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that check_corners() checks if the corner spaces are taken and takes the LAST ONE if it isn't, 
+	// 	should return '1312311328'\n";
+
+	// if (check_corners("1312311338", 2) == "1312311328") {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that check_corners() checks if the corner spaces are taken and takes the FIRST ONE if it isn't, 
+	// 	should return '2312311318'\n";
+
+	// if (check_corners("3312311318", 2) == "2312311318") {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that check_corners() checks if the corner spaces are taken and doesn't take them, 
+	// 	should return ''\n";
+
+	// if (check_corners("1312111218", 2) == "") {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	//*********************************************************************************************
+	//Tests for tied_game_history() function (looks for tied games (7s) in the sub string taken
+	//from the end of the query string and returns the number of them found)
+	//*********************************************************************************************
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that computer_game_history() looks for 9s in the sub sting and counts them, should return 5.\n";
+
+	// if (computer_game_history("5997699977") == 5) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that computer_game_history() looks for 9s in the sub sting and counts them, should return 3.\n";
+
+	// if (computer_game_history("57699977") == 3) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+	// echo "------------Testing Starts Here----------------";
+	// echo "\n\n";
+	// echo "Testing that computer_game_history() looks for 9s in the sub sting and counts them, should return 0.\n";
+
+	// if (computer_game_history("57677") == 0) {
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
 	//*********************************************************************************************
 	//Tests for tied_game_history() function (looks for tied games (7s) in the sub string taken
 	//from the end of the query string and returns the number of them found)
@@ -312,9 +433,9 @@
 
 	// echo "------------Testing Starts Here----------------";
 	// echo "\n\n";
-	// echo "Testing that if the computer wins, 8 is added to the $game_results array.\n";
+	// echo "Testing that if the computer wins, 9 is added to the $game_results array.\n";
 
-	// if (game_results(0, 0, 0, 1) == array("8")) {
+	// if (game_results(0, 0, 0, 1) == array("9")) {
 	// 	echo "Success\n";
 	// }
 	// else {
@@ -420,49 +541,52 @@
 	//*********************************************************************************************
 
 
-	echo "---------------Testing Starts Here-----------------";
-	echo "\n\n";
-	echo "Testing for translated scoreboard of a TIED GAME, should return XXOOOXXOX0";
-	echo "---------------------------------------------------";
-		if (translate_scoreboard("1122211210", "yes") == "XXOOOXXOX0"){
-		echo "Success\n";
-	}
-	else {
-		echo "Failure\n";
-	}
+	// echo "---------------Testing Starts Here-----------------";
+	// echo "\n\n";
+	// echo "Testing for translated scoreboard of a TIED GAME, should return XXOOOXXOX0";
+	// echo "---------------------------------------------------";
+	// 	if (translate_scoreboard("1122211210", "yes") == "XXOOOXXOX0"){
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
 
-	echo "---------------Testing Starts Here-----------------";
-	echo "\n\n";
-	echo "Testing for translated scoreboard for PLAYER 1 WIN, should return --X-X-XOO0";
-	echo "---------------------------------------------------";
-		if (translate_scoreboard("3313131220", "yes") == "--X-X-XOO0"){
-		echo "Success\n";
-	}
-	else {
-		echo "Failure\n";
-	}
+	// echo "---------------Testing Starts Here-----------------";
+	// echo "\n\n";
+	// echo "Testing for translated scoreboard for PLAYER 1 WIN, should return --X-X-XOO0";
+	// echo "---------------------------------------------------";
+	// 	if (translate_scoreboard("3313131220", "yes") == "--X-X-XOO0"){
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
 
-	echo "---------------Testing Starts Here-----------------";
-	echo "\n\n";
-	echo "Testing for translated scoreboard for PLAYER 2 WIN, should return OXX-O---O0";
-	echo "---------------------------------------------------";
-		if (translate_scoreboard("2113233320", "yes") == "OXX-O---O0"){
-		echo "Success\n";
-	}
-	else {
-		echo "Failure\n";
-	}
+	// echo "---------------Testing Starts Here-----------------";
+	// echo "\n\n";
+	// echo "Testing for translated scoreboard for PLAYER 2 WIN, should return OXX-O---O0";
+	// echo "---------------------------------------------------";
+	// 	if (translate_scoreboard("2113233320", "yes") == "OXX-O---O0"){
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
 
-		echo "---------------Testing Starts Here-----------------";
-	echo "\n\n";
-	echo "Testing for translated scoreboard if the computer is playing, should return OXX-O---O8";
-	echo "---------------------------------------------------";
-		if (translate_scoreboard("2113233328", "yes") == "OXX-O---O8"){
-		echo "Success\n";
-	}
-	else {
-		echo "Failure\n";
-	}
+	// 	echo "---------------Testing Starts Here-----------------";
+	// echo "\n\n";
+	// echo "Testing for translated scoreboard if the computer is playing, should return OXX-O---O8";
+	// echo "---------------------------------------------------";
+	// 	if (translate_scoreboard("2113233328", "yes") == "OXX-O---O8"){
+	// 	echo "Success\n";
+	// }
+	// else {
+	// 	echo "Failure\n";
+	// }
+
+
+	
 
 	
 ?>

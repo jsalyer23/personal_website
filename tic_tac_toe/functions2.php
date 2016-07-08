@@ -6,7 +6,7 @@
 	///////////////////////////////////////////////////////////////////////////////////////////	
 
 	//This function checks to see if anyone has won the game (returns a String)
-	function did_they_win($scoreboard, $turn) {
+	function did_they_win($scoreboard) {
 		//Create an empty Array with 8 spots to add winning combination Strings from the $scoreboard
 		$winning_combinations = array('', '', '', '', '', '', '', '');
 			//Assign one winning combination to each of the spots in the Array
@@ -31,6 +31,10 @@
 
 					// Display the winner
 					return 2;
+				}
+
+				else if ($scoreboard[9] == "8" && $value == "222") {
+					return 3;
 				}
 			}
 		
@@ -124,7 +128,7 @@
 		$computer_wins = 0;
 		//If the game is set up to play against the computer player and $score_keeper returns
 		//the String "Player 2 Wins!!!"
-		if ($scoreboard[9] == "8" && $score_keeper == 2) {
+		if ($score_keeper == 3) {
 			//Add 1 to the computer player's wins
 			$computer_wins += 1;
 			//Return the number of wins for the computer player
@@ -179,7 +183,7 @@
 		//If the computer wins
 		if ($add_win_computer == 1) {
 			//Add the number 8 to the results Array (8 represents a computer player win)
-			array_push($game_results, "8");
+			array_push($game_results, "9");
 		}
 		//Return the Array to be added to the end of the query String
 		return $game_results;
@@ -225,7 +229,7 @@
 	//$game_history Substring then returns that Integer to the screen
 	function computer_game_history($game_history) {
 		//substr_count() counts how many times a specified Substring appears in another String
-		$computer_total_wins = substr_count($game_history, "8");
+		$computer_total_wins = substr_count($game_history, "9");
 		//Display the Integer representing computer player wins (8s)
 		return $computer_total_wins;
 	}
@@ -426,31 +430,61 @@
 					//Add Player 1's moves to the $player_moves Array
 					array_push($player_moves, $scoreboard[$box]);
 				}
+				else {
+					$scoreboard[$box] = "0";
+					array_push($player_moves, $scoreboard[$box]);
+				}
 			}
 			//Return the Array of Player 1's moves
 			return $player_moves;
 		}
 	}
 
+	// function block_player($player_moves, $score_keeper, $scoreboard) {
+
+	// }
+
 	//This function checks if Player 1 has taken the center space and takes it if it's available.
 	//Computer always goes 2nd (returns query String)
 	//$scoreboard = the query String
 	//$turn = the Integer returned from whos_turn() function
-	function computer_player($scoreboard, $turn) {
+	function check_center($scoreboard, $turn) {
 		//If  Player 1 is playing against the computer (8), it's the computer's turn, and the center
 		//space has not been taken (3 = empty space)
-		if ($scoreboard[9] == "8" && $turn == 2 && $scoreboard[4] == "3") {
+		if ($scoreboard[9] == "8" && $turn == 2 && $scoreboard[4] == "3" && $scoreboard[4] != "1") {
 			//The computer takes the center space
 			$scoreboard[4] = "2";
 			//Return the new query String
 			return $scoreboard;
 		}
+		else {
+			return $scoreboard;
+		}
 	}
 
-	function make_computer_move($scoreboard, $computer_player, $turn) {
-		if ($scoreboard[9] == "8") {
-			$computer_player = $turn;
-			return $computer_player;
+	function check_corners($scoreboard, $turn) {
+		//If  Player 1 is playing against the computer (8), it's the computer's turn, and the center
+		//space has not been taken (3 = empty space)
+		if ($scoreboard[9] == "8" && $turn == 2) {
+			if ($scoreboard[0] != "1" && $scoreboard[0] != "2") {
+				$scoreboard[0] = "2";
+				return $scoreboard;
+			}
+			else if ($scoreboard[2] != "1" && $scoreboard[2] != "2") {
+				$scoreboard[2] = "2";
+				return $scoreboard;
+			}
+			else if ($scoreboard[6] != "1" && $scoreboard[6] != "2") {
+				$scoreboard[6] = "2";
+				return $scoreboard;
+			}
+			else if ($scoreboard[8] != "1" && $scoreboard[8] != "2") {
+				$scoreboard[8] = "2";
+				return $scoreboard;
+			}
+			else {
+				return '';
+			}
 		}
 	}
 

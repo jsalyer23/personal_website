@@ -2,7 +2,7 @@
 	//Assign the function that determines who's turn it is to a variable
 	$turn = whos_turn($scoreboard);
 	//Assign the function that checks if anyone has won the game to a variable
-	$score_keeper = did_they_win($scoreboard, $turn);
+	$score_keeper = did_they_win($scoreboard);
 	//Add the functions that return 1 for each win each player has to variables
 	$add_win_player1 = add_to_win_player1($score_keeper);
 	$add_win_player2 = add_to_win_player2($score_keeper, $scoreboard);
@@ -16,7 +16,7 @@
 	//Add the funtions that return 1 for each tied game
 	$add_draw = add_to_draws($turn, $draw_message);
 	//game_results returns an Array to track games to be added to the end of the query string
-	$game_results = game_results($add_draw, $add_win_player1, $add_win_player2);
+	$game_results = game_results($add_draw, $add_win_player1, $add_win_player2, $add_win_computer);
 	//Join $game_results Array to be added to the end of the query string
 	$joined_game_results = implode('', $game_results);
 	//Creates a substring of numbers starting at $scoreboard[9] to add to the end of the query string
@@ -34,7 +34,7 @@
 	//This returns an Array of Player 1's moves so the computer knows where Player 1 has went
 	$player_moves = player_moves($scoreboard);
 	//Computer player logic
-	$computer_player = computer_player($scoreboard, $turn);
+	$computer_player = check_center($scoreboard, $turn);
 	//Returns an 8 or a 0 depending on which type of opponent has been chosen
 	$play_computer_again = play_computer_again($scoreboard);
 	//Checks if the game has ended
