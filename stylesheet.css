@@ -6,13 +6,13 @@ html {
 }
 
 
-ul a:hover {
-	background-color: #3f7098;
+.navTitles__page:hover {
+	background-color: #e5bd7c;
 	color: black;
 }
 
-#current_page a {
-	background-color: #f90409;
+#current_page {
+	background-color: #454142;
 	color: black;
 }
 
