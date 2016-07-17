@@ -49,6 +49,9 @@
 
 				<li class="navTitles__page" <?php if ($thisPage == "Personal Dictionary") {echo " id=\"current_page\"";} ?>>	
 					<a href="articles6.php">Personal Dictionary</a>
+
+				<li class="navTitles__page" <?php if ($thisPage == "Front-end VS Back-end") {echo " id=\"current_page\"";} ?>>	
+					<a href="articles7.php">Front-end VS Back-end</a>
 	
 			</ul>
 
