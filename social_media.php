@@ -3,17 +3,17 @@
 	include("top.php"); 
 ?>
 
-				<h1>Joshua Salyer</h1>
+				<h1 class="articleTitles">Joshua Salyer</h1>
 
-				<p>Feel free to contact me!</p>
+				<h3 class="articleTitles">Feel free to contact me!</h3>
 
-				<p><a href="mailto:joshsalyer23@gmail.com">joshsalyer23@gmail.com</a></p>
+				<p><a class="link" href="mailto:joshsalyer23@gmail.com">joshsalyer23@gmail.com</a></p>
 
-				<a class="social_icon" href="http://twitter.com/joshsalyer23"><img alt="Twitter Logo" src=""></a>
+				<a  href="http://twitter.com/joshsalyer23"><img class="social_icon social_media" alt="Twitter Logo" src="img/TwitterLogo.png"></a>
 
-				<a class="social_icon" href="http://facebook.com/joshsalyer23"><img alt="Facebook Logo" src="img/FB-f-Logo__blue_50.png"></a>
+				<a href="http://facebook.com/joshsalyer23"><img class="social_icon social_media" alt="Facebook Logo" src="img/FB-f-Logo__blue_50.png"></a>
 
-				<a class="social_icon" href="http://github.com/jsalyer23"><img alt="GitHub Logo" src="img/GitHub-Mark-64px.png"></a>
+				<a href="http://github.com/jsalyer23"><img class="social_icon social_media" alt="GitHub Logo" src="img/GitHub-Mark-64px.png"></a>
 			</div>
 		</div>
 		
