@@ -8,53 +8,77 @@ body {
 	margin: 0;
 }
 
-li a {
-	display: -webkit-flex;
+.link {
 	text-decoration: none;
-	color: white;
-	justify-content: center;
+	color: #454142;
 }
 
-ul a:hover {
-	background-color: #3f7098;
+.link:hover {
+	color: #e5bd7c;
+}
+
+
+.navLinks:hover {
+	background-color: #f9d338;
+	color: black;
+}
+
+#current_page {
+	background-color: #f9d338;
 	color: black;
 }
 /**********************************Change the color of the currently selected page****************************/
-#current_page a {
-	background-color: #f90409;
-	color: black;
-}
-
 
 
 .flex-container{
 	display: flex;
-	justify-content: space-around;
+	min-height: 100vh;
 }
 
 .nav-wrapper {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: #415762;
+	width: 300px;
+}
+
+.navLinks a {
+	text-decoration: none;
+	color: white;
+}
+
+.navLinks {
+	border: 1px solid #3c3c3c;
+	background-color: #929294;
+	border-radius: 2px;
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	font-family: 'Roboto Slab', serif;
+	text-decoration: none;
+
 }
 
 .sidebar {
 	display: flex;
-	background-color: #415762;
+	background-color: #646464;
 	list-style-type: none;
-
+	border-right: 1px solid #3c3c3c;
+	
 }
 
 .nav-wrapper ul {
 	list-style-type: none;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .main {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	background-color: #48b5e0;
+	flex: 1 1;
+	padding: 20px;
+	background-color: #faf8ec;
+	font-family: 'Open Sans', sans-serif;
+
+	
 }
 
 
@@ -139,26 +163,32 @@ ul a:hover {
 	padding-left: 0px;
 }
 
-
 .navTitles {
-	padding-left: 25%;
+	padding-left: 40%;
+	font-family: 'Lobster', cursive;
+	font-size: 30px;
+
 
 }
 
 .topLeft {
-	height: 90px;
-	padding-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	height: 120px;
+	background: #f9d338;
 }
 
 .topLeft__name {
 	display: flex;
 	justify-content: center;
+	color: #3c3c3c;
 }
 
 .topLeft__icons {
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
+
 }
 
 .navTitles__page {
@@ -171,5 +201,17 @@ ul a:hover {
 	width: 30px;
 	height: 30px;
 	padding: 10px;
+}
+
+.social_icon.gitHub {
+	width: 25px;
+	height: 25px;
+	padding-top: 12px;
+}
+
+.social_icon.social_media {
+	width: 45px;
+	height: 45px;
+	padding: 15px;
 }
 
