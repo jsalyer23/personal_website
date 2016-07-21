@@ -3,9 +3,11 @@
 	include("top.php");
 ?>
 
-	
+			<div class="titles">
 				<h2 class="articleTitles">Tic Tac Toe Journal</h2>
+			</div>
 				
+			<div class="content">
 				<p>When I started working on my tic tac toe project I thought that by changing the image that was displayed in each space on the board was a great idea. About half way through writing the code that I was making things more complex then they needed to be. I was using HTML to resize my images as they loaded which ended up creating a slight lag when a move was made. Plus I was spending way too much time trying to find just the right image to make it look like it wasn't an image. So I decided to start over and focus more on usin a query string.</p>
 
 				<p>The boxes in the tic tac toe board were numbered in my mind but I previously had never actually put that concept into my code anywhere. Realizing my mistake, I assigned numbers to each of the boxes and created a query string to represent all the boxes and their values. I decided to set empty boxes to 3, boxes taken by Player 1 to 1, and boxes taken by Player 2 to 2. My first thought when doing this ws that I would subtract either 1 or 2 from 3 in the query string which would then change the appropriate boxes on the board. I ended up finding that by just assigning the box a new value in the query string was less complicated and had the same desired outcome.</p>
@@ -17,6 +19,7 @@
 				<p>Now the game is working as expected and I have written at least three tests for each of the functions I have as I wrote them. I have some more work to do with adding more functionality and style to the game but at least I feel like I have separated my code into separate functions that work well together.</p>
 			</div>
 		</div>
+	</div>
 
 
 

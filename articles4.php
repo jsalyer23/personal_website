@@ -2,9 +2,11 @@
 	$thisPage = "What Makes Up An HTML Document?"; 
 	include("top.php"); 
 ?>
-
+			<div class="titles">
 				<h2 class="articleTitles">What Makes Up An HTML Document?</h2>
+			</div>
 				
+			<div class="content">
 				<p>There are many possible parts to a HTML document but every website has the same basic structure. The basic HTML document is made up of html, head, body, and footer tags. Many more tags can be added within these but we'll focus on the basic ones.</p>
 
 				<p>Every HTML document starts by declaring the &lt;DOCTYPE html&gt;. If you don't tell the browser how to interperet your HTML doument it won't know what to do with it. The second tag needed to start an HTML document is the &lt;html&gt; tags which surround everything besides the doctype decloration. The &lt;html&gt; tags also tell the browser that everything within them should be interpereted as HTML script.</p>
@@ -18,5 +20,6 @@
 				<p>The basic structure of a HTML document is pretty much the same for all websites but the things that people can create with it are amazing. There are an enless amount of ways to create a website from the same HTML elements. What will you create?</p>
 			</div>
 		</div>
+	</div>
 		
 <?php include("bottom.php"); ?>
