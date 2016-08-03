@@ -85,6 +85,18 @@
 							<a href="articles7.php">Front-end VS Back-end</a>
 						</div>
 					</li>
+
+					<li class="navTitles__page">
+						<div class="navLinks" <?php if ($thisPage == "Weeks 5 and 6") {echo " id=\"current_page\"";} ?>>	
+							<a href="articles8.php">Weeks 5 and 6</a>
+						</div>
+					</li>
+
+					<li class="navTitles__page">
+						<div class="navLinks" <?php if ($thisPage == "Ups and Downs Of Coding") {echo " id=\"current_page\"";} ?>>	
+							<a href="articles9.php">Ups and Downs Of Coding</a>
+						</div>
+					</li>
 	
 			</ul>
 
