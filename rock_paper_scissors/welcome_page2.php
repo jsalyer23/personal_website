@@ -3,7 +3,8 @@
 	include("top2.php");
 ?>
  			
- 			<div>
+ 			<div class="content">
+ 				<div class="rps">
  				<?php
  					
  					include ("rps.php");
@@ -11,9 +12,11 @@
  					$rand = random_computer_choice();
  					 
  					echo rock_paper_scissors($_GET["weapon"], $rand);
-	 				display_choices($_GET["weapon"], $rand);
- 					
  				?>
+ 				</div class="rpsChoices">
+	 				<?php display_choices($_GET["weapon"], $rand); ?>
+ 				</div>
+ 				
  			</div>
  
 
